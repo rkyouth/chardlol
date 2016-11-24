@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MainTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -14,9 +15,20 @@
 
 @implementation AppDelegate
 
+#pragma mark - private
+- (void)setMainTabBarViewController
+{
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [[MainTabBarController alloc] init];
+    [self.window makeKeyAndVisible];
+}
 
+#pragma mark - lifecircle
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    [self setMainTabBarViewController];
+    
     return YES;
 }
 

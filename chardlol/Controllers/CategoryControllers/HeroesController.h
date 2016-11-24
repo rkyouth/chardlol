@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  HerosController.h
 //  chardlol
 //
 //  Created by ChardLl on 2016/11/23.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface HeroesController : UIViewController
 
 @end
-
