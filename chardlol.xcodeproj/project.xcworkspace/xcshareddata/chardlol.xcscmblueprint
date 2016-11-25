@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6AABAF4F017AD345A26427D8B51744A533F829B1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "6AABAF4F017AD345A26427D8B51744A533F829B1" : 0,
+    "A1D24755957867B8CDC090D24BE286630F4E78DF" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0CC6B34C-ABF0-41B8-8E34-BA81574796F0",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "6AABAF4F017AD345A26427D8B51744A533F829B1" : "chardlol\/",
+    "A1D24755957867B8CDC090D24BE286630F4E78DF" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "chardlol",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "chardlol.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/rkyouth\/chardlol.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6AABAF4F017AD345A26427D8B51744A533F829B1"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "ssh:\/\/h-z.co:58422\/warmer.ios",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A1D24755957867B8CDC090D24BE286630F4E78DF"
+    }
+  ]
+}

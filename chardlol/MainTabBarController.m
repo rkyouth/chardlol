@@ -12,6 +12,9 @@
 #import "KeepingController.h"
 #import "SettingController.h"
 #import "RKSwipeBetweenViewControllers.h"
+#import "AuthManager.h"
+#import "CHWebViewController.h"
+#import "RequestTool.h"
 
 @interface MainTabBarController ()
 

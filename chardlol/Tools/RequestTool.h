@@ -18,11 +18,13 @@
 // 优酷接口
 #define yk_clientid @"92927d657412b8f8"
 #define yk_secretid @"444f27bd42fbf358d15b129315bb631b"
+#define yk_playlistid @"28731667"
 #define authorize_url @"https://openapi.youku.com/v2/oauth2/authorize"
 #define accestoken_url @"https://openapi.youku.com/v2/oauth2/token"
+#define yk_playurl @"http://pl.youku.com/playlist/m3u8?vid=%@&ts=1480098062.0&ctype=12&token=3739&keyframe=1&sid=848009806257712f776e6&ev=1&type=hd2&ep=eiacGkmEXs4G5ybYjz8bMSvlciIJXJZ3kkjP%2FJgxAcVQIa%2FB6DPcqJ63TfY%3D&oip=2067476272"
 
 #define yk_users @"https://openapi.youku.com/v2/users/show_batch.json"
-#define recommend_list @"https://openapi.youku.com/v2/playlists/by_me.json"
+#define recommend_list @"https://openapi.youku.com/v2/playlists/videos.json"
 
 
 @interface RequestTool : NSObject

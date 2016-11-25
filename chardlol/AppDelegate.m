@@ -25,34 +25,11 @@
     [self.window makeKeyAndVisible];
 }
 
-- (void)setAccessToken
-{
-    NSDictionary *params = @{@"client_id":yk_clientid,
-                             @"response_type":@"code",
-                             @"redirect_uri":@"http://www.youku.com"};
-    [RequestTool GET:authorize_url Parameters:params Successed:^(id resData) {
-
-        NSDictionary *accessParams = @{@"client_id":yk_clientid,
-                                       @"client_secret":yk_secretid,
-                                       @"grant_type":@"authorization_code",
-                                       @"code":resData,
-                                       @"redirect_uri":@"http://www.youku.com"};
-        [RequestTool POST:accestoken_url Parameters:accessParams Successed:^(NSDictionary *resData) {
-            [AuthManager sharedManager].accessCode = resData[@"access_token"];
-            
-            [self setMainTabBarViewController];
-            
-        } Failed:^(NSError *error) {}];
-        
-    } Failed:^(NSError *error) {
-    
-    }];
-}
-
 #pragma mark - lifecircle
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [self setAccessToken];
+    
+    [self setMainTabBarViewController];
     
     return YES;
 }
