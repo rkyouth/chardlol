@@ -11,6 +11,7 @@
 #import "CategoryController.h"
 #import "KeepingController.h"
 #import "SettingController.h"
+#import "RKSwipeBetweenViewControllers.h"
 
 @interface MainTabBarController ()
 
@@ -22,7 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    NSArray *titles = @[@"推荐",@"分类",@"我的",@"设置"];
+    NSArray *titles = @[@"推荐",@"分类",@"我的"];
     
     for (int i = 0; i < titles.count; i ++) {
         NSString *title = titles[i];
@@ -45,13 +46,12 @@
         }
             break;
         case 2:{
-            vc = [[KeepingController alloc] init];
-            vc.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemDownloads tag:index];
-        }
-            break;
-        case 3:{
-            vc = [[SettingController alloc] init];
-            vc.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:index];
+            RKSwipeBetweenViewControllers *nav_down = [RKSwipeBetweenViewControllers newSwipeBetweenViewControllers];
+            [nav_down.viewControllerArray addObjectsFromArray:@[[[KeepingController alloc] init],
+                                                                 [[KeepingController alloc] init]]];
+            nav_down.buttonText = @[@"收藏", @"下载"];
+            nav_down.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemDownloads tag:index];
+            vc = nav_down;
         }
             break;
             
@@ -60,8 +60,14 @@
     }
     vc.view.backgroundColor = [UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1];
     vc.title = title;
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self addChildViewController:nav];
+    if (index != 2) {
+        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+        [nav.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+         [self addChildViewController:nav];
+    }else{
+        [self addChildViewController:vc];
+    }
+    
 }
 
 @end

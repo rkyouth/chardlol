@@ -17,6 +17,7 @@
      Failed:(void (^)(NSError *error))failed
 {
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    mgr.responseSerializer = [AFHTTPResponseSerializer serializer];
     [mgr GET:urlString parameters:parameters progress:^(NSProgress * _Nonnull downloadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -37,6 +38,7 @@
       Failed:(void (^)(NSError *error))failed
 {
     AFHTTPSessionManager *mgr = [AFHTTPSessionManager manager];
+    mgr.responseSerializer = [AFHTTPResponseSerializer serializer];
     [mgr POST:urlString parameters:parameters progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
