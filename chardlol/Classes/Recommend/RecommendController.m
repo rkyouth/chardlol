@@ -14,6 +14,7 @@
 #import "UIImageView+WebCache.h"
 #import "ZFPlayer.h"
 #import "ZFDownloadManager.h"
+#import "SettingController.h"
 
 @interface RecommendController () <UITableViewDataSource,UITableViewDelegate,ZFPlayerDelegate>
 
@@ -128,6 +129,9 @@
 - (void)didTapSettingsButton:(UIBarButtonItem *)item
 {
     NSLog(@"...");
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[SettingController alloc] init]];
+    [self.navigationController presentViewController:nav animated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate
@@ -176,7 +180,7 @@
         [weakSelf.playerView playerControlView:weakSelf.controlView playerModel:playerModel];
         [weakSelf.playerView addPlayerToCellImageView:weakCell.imgView];
         // 下载功能
-        weakSelf.playerView.hasDownload = YES;
+        weakSelf.playerView.hasDownload = NO;
         // 自动播放
         [weakSelf.playerView autoPlayTheVideo];
     };

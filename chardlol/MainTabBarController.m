@@ -15,6 +15,7 @@
 #import "AuthManager.h"
 #import "CHWebViewController.h"
 #import "RequestTool.h"
+#import "ZFDownloadViewController.h"
 
 @interface MainTabBarController ()
 
@@ -26,7 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    NSArray *titles = @[@"推荐",@"分类",@"我的"];
+    NSArray *titles = @[@"推 荐",@"分 类",@"收 藏"];
     
     for (int i = 0; i < titles.count; i ++) {
         NSString *title = titles[i];
@@ -49,27 +50,30 @@
         }
             break;
         case 2:{
-            RKSwipeBetweenViewControllers *nav_down = [RKSwipeBetweenViewControllers newSwipeBetweenViewControllers];
-            [nav_down.viewControllerArray addObjectsFromArray:@[[[KeepingController alloc] init],
-                                                                 [[KeepingController alloc] init]]];
-            nav_down.buttonText = @[@"收藏", @"下载"];
-            nav_down.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemDownloads tag:index];
-            vc = nav_down;
+//            RKSwipeBetweenViewControllers *nav_down = [RKSwipeBetweenViewControllers newSwipeBetweenViewControllers];
+//            [nav_down.viewControllerArray addObjectsFromArray:@[[[KeepingController alloc] init],
+//                                                                 [[ZFDownloadViewController alloc] init]]];
+//            nav_down.buttonText = @[@"收藏", @"下载"];
+//            nav_down.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemDownloads tag:index];
+//            vc = nav_down;
+            vc = [[KeepingController alloc] init];
+            vc.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemDownloads tag:index];
         }
             break;
             
         default:
             break;
     }
-    vc.view.backgroundColor = [UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1];
+    vc.view.backgroundColor = [UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1];
     vc.title = title;
-    if (index != 2) {
+//    if (index != 2) {
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-        [nav.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18]}];
+//    nav.navigationBar.translucent = NO;
+        [nav.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:18 weight:0.1]}];
          [self addChildViewController:nav];
-    }else{
-        [self addChildViewController:vc];
-    }
+//    }else{
+//        [self addChildViewController:vc];
+//    }
     
 }
 

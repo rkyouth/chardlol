@@ -7,6 +7,7 @@
 //
 
 #import "KeepingController.h"
+#import "SettingController.h"
 
 @interface KeepingController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -21,6 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.navigationItem.rightBarButtonItem = [self settingsBarButtonItem];
+    
     [self.view addSubview:self.tableView];
 
 }
@@ -40,7 +44,7 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.backgroundColor = [UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1];
-        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+//        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     }
     return _tableView;
 }
@@ -51,6 +55,22 @@
         _dataSource = [NSMutableArray arrayWithArray:@[@"333",@"444"]];
     }
     return _dataSource;
+}
+
+- (UIBarButtonItem *)settingsBarButtonItem {
+    return [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"]
+                                            style:UIBarButtonItemStylePlain
+                                           target:self
+                                           action:@selector(didTapSettingsButton:)];
+}
+
+#pragma mark - ui_response
+- (void)didTapSettingsButton:(UIBarButtonItem *)item
+{
+    NSLog(@"...");
+    
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[SettingController alloc] init]];
+    [self.navigationController presentViewController:nav animated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate

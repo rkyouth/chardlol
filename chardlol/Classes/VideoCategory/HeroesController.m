@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "RequestTool.h"
 #import "HeroModel.h"
+#import "CHCustomCell.h"
 
 @interface HeroesController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -27,6 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    self.title = @"英雄列表";
 
     [self.view addSubview:self.tableView];
     
@@ -92,12 +94,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ID = @"cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
-    }
+    CHCustomCell *cell = [CHCustomCell cellWithTableView:tableView];
     HeroModel *hero = self.heroes[indexPath.row];
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:hero.avatar] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     cell.textLabel.text = hero.name;

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		841A60E71DEACD730053717A /* CHCustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A60E61DEACD730053717A /* CHCustomCell.m */; };
 		847AA8391DE8885F007B3EF7 /* CHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AA8381DE8885F007B3EF7 /* CHWebViewController.m */; };
 		847AA85B1DE8AC99007B3EF7 /* ASValuePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AA8401DE8AC99007B3EF7 /* ASValuePopUpView.m */; };
 		847AA85C1DE8AC99007B3EF7 /* ASValueTrackingSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AA8421DE8AC99007B3EF7 /* ASValueTrackingSlider.m */; };
@@ -60,6 +61,10 @@
 		847AA8EA1DE8B18B007B3EF7 /* LICENCE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 847AA8E61DE8B18B007B3EF7 /* LICENCE.txt */; };
 		847AA8EB1DE8B18B007B3EF7 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AA8E81DE8B18B007B3EF7 /* Reachability.m */; };
 		847AA8EC1DE8B18B007B3EF7 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 847AA8E91DE8B18B007B3EF7 /* README.md */; };
+		847AA8EF1DE9609D007B3EF7 /* MoviePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AA8EE1DE9609D007B3EF7 /* MoviePlayerViewController.m */; };
+		847AA8F51DE960BA007B3EF7 /* ZFDownloadedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AA8F21DE960BA007B3EF7 /* ZFDownloadedCell.m */; };
+		847AA8F61DE960BA007B3EF7 /* ZFDownloadingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AA8F41DE960BA007B3EF7 /* ZFDownloadingCell.m */; };
+		847AA8F91DE960F5007B3EF7 /* ZFDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AA8F81DE960F5007B3EF7 /* ZFDownloadViewController.m */; };
 		8E161B0C1DE588480070CA50 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E161B001DE588480070CA50 /* AFHTTPSessionManager.m */; };
 		8E161B0D1DE588480070CA50 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E161B031DE588480070CA50 /* AFNetworkReachabilityManager.m */; };
 		8E161B0E1DE588480070CA50 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E161B051DE588480070CA50 /* AFSecurityPolicy.m */; };
@@ -108,6 +113,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		841A60E51DEACD730053717A /* CHCustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCustomCell.h; sourceTree = "<group>"; };
+		841A60E61DEACD730053717A /* CHCustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCustomCell.m; sourceTree = "<group>"; };
 		847AA8371DE8885F007B3EF7 /* CHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWebViewController.h; sourceTree = "<group>"; };
 		847AA8381DE8885F007B3EF7 /* CHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebViewController.m; sourceTree = "<group>"; };
 		847AA83F1DE8AC99007B3EF7 /* ASValuePopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASValuePopUpView.h; sourceTree = "<group>"; };
@@ -224,6 +231,14 @@
 		847AA8E71DE8B18B007B3EF7 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		847AA8E81DE8B18B007B3EF7 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		847AA8E91DE8B18B007B3EF7 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		847AA8ED1DE9609D007B3EF7 /* MoviePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoviePlayerViewController.h; sourceTree = "<group>"; };
+		847AA8EE1DE9609D007B3EF7 /* MoviePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoviePlayerViewController.m; sourceTree = "<group>"; };
+		847AA8F11DE960BA007B3EF7 /* ZFDownloadedCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDownloadedCell.h; sourceTree = "<group>"; };
+		847AA8F21DE960BA007B3EF7 /* ZFDownloadedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDownloadedCell.m; sourceTree = "<group>"; };
+		847AA8F31DE960BA007B3EF7 /* ZFDownloadingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDownloadingCell.h; sourceTree = "<group>"; };
+		847AA8F41DE960BA007B3EF7 /* ZFDownloadingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDownloadingCell.m; sourceTree = "<group>"; };
+		847AA8F71DE960F5007B3EF7 /* ZFDownloadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFDownloadViewController.h; sourceTree = "<group>"; };
+		847AA8F81DE960F5007B3EF7 /* ZFDownloadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFDownloadViewController.m; sourceTree = "<group>"; };
 		8E161AFF1DE588480070CA50 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
 		8E161B001DE588480070CA50 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		8E161B011DE588480070CA50 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
@@ -328,6 +343,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		841A60E41DEACD450053717A /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				841A60E51DEACD730053717A /* CHCustomCell.h */,
+				841A60E61DEACD730053717A /* CHCustomCell.m */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
 		847AA83E1DE8AC99007B3EF7 /* ZFPlayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -510,6 +534,17 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		847AA8F01DE960BA007B3EF7 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				847AA8F11DE960BA007B3EF7 /* ZFDownloadedCell.h */,
+				847AA8F21DE960BA007B3EF7 /* ZFDownloadedCell.m */,
+				847AA8F31DE960BA007B3EF7 /* ZFDownloadingCell.h */,
+				847AA8F41DE960BA007B3EF7 /* ZFDownloadingCell.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
 		8E161AFE1DE588480070CA50 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,9 +652,9 @@
 			children = (
 				8E7FF90B1DE7D2DE0003482F /* Classes */,
 				8E161B121DE588820070CA50 /* Tools */,
-				8E4DD5F31DE583E900441C04 /* ThirdLib */,
 				8E4DD5E31DE573FE00441C04 /* MainTabBarController.h */,
 				8E4DD5E41DE573FE00441C04 /* MainTabBarController.m */,
+				8E4DD5F31DE583E900441C04 /* ThirdLib */,
 				8E4DD5CC1DE56F2100441C04 /* Supporting Files */,
 			);
 			path = chardlol;
@@ -657,6 +692,7 @@
 		8E7FF90B1DE7D2DE0003482F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				841A60E41DEACD450053717A /* Custom */,
 				8E7FF9111DE7D2DE0003482F /* Recommend */,
 				8E7FF9181DE7D2DE0003482F /* VideoCategory */,
 				8E7FF90C1DE7D2DE0003482F /* Keeping */,
@@ -664,6 +700,8 @@
 				8E7FF9171DE7D2DE0003482F /* SettingController.m */,
 				847AA8371DE8885F007B3EF7 /* CHWebViewController.h */,
 				847AA8381DE8885F007B3EF7 /* CHWebViewController.m */,
+				847AA8ED1DE9609D007B3EF7 /* MoviePlayerViewController.h */,
+				847AA8EE1DE9609D007B3EF7 /* MoviePlayerViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -671,26 +709,13 @@
 		8E7FF90C1DE7D2DE0003482F /* Keeping */ = {
 			isa = PBXGroup;
 			children = (
+				847AA8F71DE960F5007B3EF7 /* ZFDownloadViewController.h */,
+				847AA8F81DE960F5007B3EF7 /* ZFDownloadViewController.m */,
 				8E7FF90D1DE7D2DE0003482F /* KeepingController.h */,
 				8E7FF90E1DE7D2DE0003482F /* KeepingController.m */,
-				8E7FF90F1DE7D2DE0003482F /* Model */,
-				8E7FF9101DE7D2DE0003482F /* View */,
+				847AA8F01DE960BA007B3EF7 /* view */,
 			);
 			path = Keeping;
-			sourceTree = "<group>";
-		};
-		8E7FF90F1DE7D2DE0003482F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		8E7FF9101DE7D2DE0003482F /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		8E7FF9111DE7D2DE0003482F /* Recommend */ = {
@@ -851,6 +876,7 @@
 				847AA8651DE8AC99007B3EF7 /* ZFPlayerControlView.m in Sources */,
 				847AA8B21DE8AF9E007B3EF7 /* ASINetworkQueue.m in Sources */,
 				8E7FF9281DE7D2DE0003482F /* HeroesController.m in Sources */,
+				847AA8F91DE960F5007B3EF7 /* ZFDownloadViewController.m in Sources */,
 				847AA8AF1DE8AF9E007B3EF7 /* ASIFormDataRequest.m in Sources */,
 				847AA8AD1DE8AF9E007B3EF7 /* ASIDataDecompressor.m in Sources */,
 				8E161B0D1DE588480070CA50 /* AFNetworkReachabilityManager.m in Sources */,
@@ -864,6 +890,7 @@
 				847AA8751DE8AEDB007B3EF7 /* ZFHttpRequest.m in Sources */,
 				8E161B521DE590050070CA50 /* SDWebImageManager.m in Sources */,
 				8E7FF93A1DE81B800003482F /* SMPageControl.m in Sources */,
+				841A60E71DEACD730053717A /* CHCustomCell.m in Sources */,
 				847AA85D1DE8AC99007B3EF7 /* UIImageView+ZFCache.m in Sources */,
 				8E161B4F1DE590050070CA50 /* SDWebImageDecoder.m in Sources */,
 				847AA8671DE8AC99007B3EF7 /* ZFPlayerView.m in Sources */,
@@ -880,7 +907,9 @@
 				847AA8BB1DE8AF9E007B3EF7 /* ASIS3Bucket.m in Sources */,
 				8E161B591DE590050070CA50 /* UIImageView+WebCache.m in Sources */,
 				8E161B0E1DE588480070CA50 /* AFSecurityPolicy.m in Sources */,
+				847AA8F51DE960BA007B3EF7 /* ZFDownloadedCell.m in Sources */,
 				847AA8611DE8AC99007B3EF7 /* UIViewController+ZFPlayerRotation.m in Sources */,
+				847AA8F61DE960BA007B3EF7 /* ZFDownloadingCell.m in Sources */,
 				8E161B0F1DE588480070CA50 /* AFURLRequestSerialization.m in Sources */,
 				8E161B551DE590050070CA50 /* UIImage+GIF.m in Sources */,
 				847AA8731DE8AEDB007B3EF7 /* ZFDownloadManager.m in Sources */,
@@ -930,6 +959,7 @@
 				847AA8C01DE8AF9E007B3EF7 /* ASIS3ServiceRequest.m in Sources */,
 				847AA8DC1DE8B0D2007B3EF7 /* MASConstraint.m in Sources */,
 				847AA8B81DE8AF9E007B3EF7 /* ASICloudFilesObject.m in Sources */,
+				847AA8EF1DE9609D007B3EF7 /* MoviePlayerViewController.m in Sources */,
 				8E7FF9291DE7D2DE0003482F /* HeroModel.m in Sources */,
 				847AA8DD1DE8B0D2007B3EF7 /* MASConstraintMaker.m in Sources */,
 				847AA8B51DE8AF9E007B3EF7 /* ASICloudFilesContainer.m in Sources */,
