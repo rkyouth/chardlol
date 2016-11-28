@@ -41,12 +41,14 @@
     switch (index) {
         case 0:{
             vc = [[RecommendController alloc] init];
-            vc.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFeatured tag:index];
+            vc.tabBarItem.image = [UIImage imageNamed:@"tabbar_recommend"];
+            vc.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_recommend_selected"];
         }
             break;
         case 1:{
             vc = [[CategoryController alloc] init];
-            vc.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemBookmarks tag:index];
+            vc.tabBarItem.image = [UIImage imageNamed:@"tabbar_find"];
+            vc.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_find_selected"];
         }
             break;
         case 2:{
@@ -57,7 +59,8 @@
 //            nav_down.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemDownloads tag:index];
 //            vc = nav_down;
             vc = [[KeepingController alloc] init];
-            vc.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemDownloads tag:index];
+            vc.tabBarItem.image = [UIImage imageNamed:@"tabbar_collect"];
+            vc.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_collect_selected"];
         }
             break;
             
@@ -66,6 +69,7 @@
     }
     vc.view.backgroundColor = [UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1];
     vc.title = title;
+    self.tabBar.tintColor = [UIColor colorWithRed:24/255.0 green:83/255.0 blue:161/255.0 alpha:1];
 //    if (index != 2) {
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
 //    nav.navigationBar.translucent = NO;

@@ -50,8 +50,8 @@
         self.imgView = imgView;
         
         UILabel *titleLab = [[UILabel alloc] init];
-        titleLab.font = [UIFont systemFontOfSize:16 weight:0.2];
-        titleLab.textColor = [UIColor colorWithRed:130/255.0 green:130/255.0 blue:130/255.0 alpha:0.9];
+        titleLab.font = [UIFont systemFontOfSize:15];
+        titleLab.textColor = [UIColor colorWithRed:50/255.0 green:50/255.0 blue:50/255.0 alpha:1];
         [self.contentView addSubview:titleLab];
         self.titleLab = titleLab;
         

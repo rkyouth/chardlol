@@ -45,7 +45,7 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.tableFooterView = [[UIView alloc] init];
-        _tableView.rowHeight = 70;
+        _tableView.rowHeight = 60;
         _tableView.backgroundColor = [UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1];
     }
     return _tableView;

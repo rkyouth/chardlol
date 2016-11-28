@@ -31,8 +31,8 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        self.imageView.layer.cornerRadius = 5;
-        self.imageView.clipsToBounds = YES;
+//        self.imageView.layer.cornerRadius = 5;
+//        self.imageView.clipsToBounds = YES;
     }
     return self;
 }
