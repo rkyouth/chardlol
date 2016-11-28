@@ -12,7 +12,6 @@
 @interface KeepingController () <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
-
 @property (nonatomic,strong) NSMutableArray *dataSource;
 
 @end
@@ -63,6 +62,8 @@
                                            target:self
                                            action:@selector(didTapSettingsButton:)];
 }
+
+
 
 #pragma mark - ui_response
 - (void)didTapSettingsButton:(UIBarButtonItem *)item
