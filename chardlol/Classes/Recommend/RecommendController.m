@@ -26,6 +26,7 @@
 @property (nonatomic, strong) ZFPlayerView        *playerView;
 @property (nonatomic, strong) ZFPlayerControlView *controlView;
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
+@property (nonatomic,strong) UIActivityIndicatorView *indicatorView;
 
 @property (nonatomic,strong) UIView *adView;
 @end
@@ -39,6 +40,8 @@
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.refreshControl;
     self.automaticallyAdjustsScrollViewInsets = NO;
+    [self.view addSubview:self.indicatorView];
+    [self.indicatorView startAnimating];
     
     self.navigationItem.rightBarButtonItem = [self settingsBarButtonItem];
     
@@ -59,6 +62,8 @@
     CGFloat H = self.view.frame.size.height - self.tabBarController.tabBar.frame.size.height;
     self.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, H);
 //    self.tableView.frame = self.view.bounds;
+    
+    self.indicatorView.center = self.tableView.center;
 }
 
 - (UIBarButtonItem *)settingsBarButtonItem {
@@ -89,6 +94,7 @@
         [self.tableView reloadData];
         
         [self.refreshControl endRefreshing];
+        [self.indicatorView stopAnimating];
     } Failed:^(NSError *error) { [self.refreshControl endRefreshing]; }];
 }
 
@@ -175,6 +181,14 @@
         [_refreshControl addTarget:self action:@selector(refreshAction) forControlEvents:UIControlEventValueChanged];
     }
     return _refreshControl;
+}
+
+- (UIActivityIndicatorView *)indicatorView
+{
+    if (!_indicatorView) {
+        _indicatorView = [[UIActivityIndicatorView alloc] init];
+    }
+    return _indicatorView;
 }
 
 #pragma mark - ui_response

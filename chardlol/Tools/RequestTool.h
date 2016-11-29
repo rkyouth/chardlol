@@ -25,6 +25,7 @@
 
 #define yk_users @"https://openapi.youku.com/v2/users/show_batch.json"
 #define recommend_list @"https://openapi.youku.com/v2/playlists/videos.json"
+#define match_list @"http://apps.game.qq.com/lol/match/app_apis/searchSGameList.php?a1=qtapp&a2=1480405711&a3=72a91959a23e77bdbfa899e71dadcb6e"
 
 
 @interface RequestTool : NSObject

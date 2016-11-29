@@ -22,7 +22,7 @@
     static NSString *ID = @"customcell";
     CHCustomCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
-        cell = [[CHCustomCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:ID];
+        cell = [[CHCustomCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
     }
     return cell;
 }
@@ -31,6 +31,9 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.detailTextLabel.textColor = [UIColor lightGrayColor];
+        self.imageView.clipsToBounds = YES;
+        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 //        self.imageView.layer.cornerRadius = 5;
 //        self.imageView.clipsToBounds = YES;
     }

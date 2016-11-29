@@ -92,6 +92,10 @@
 		8E161B5A1DE590050070CA50 /* UIView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E161B451DE590050070CA50 /* UIView+WebCache.m */; };
 		8E161B5B1DE590050070CA50 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E161B471DE590050070CA50 /* UIView+WebCacheOperation.m */; };
 		8E161B7B1DE5A68F0070CA50 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E161B7A1DE5A68F0070CA50 /* libz.tbd */; };
+		8E389A4B1DED244D006C4CBF /* ComperesModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A4A1DED244D006C4CBF /* ComperesModel.m */; };
+		8E389A4E1DED468C006C4CBF /* VideoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A4D1DED468C006C4CBF /* VideoListController.m */; };
+		8E389A511DED6018006C4CBF /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A501DED6018006C4CBF /* MatchViewController.m */; };
+		8E389A541DED6AC0006C4CBF /* MatchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A531DED6AC0006C4CBF /* MatchModel.m */; };
 		8E4DD5CE1DE56F2100441C04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4DD5CD1DE56F2100441C04 /* main.m */; };
 		8E4DD5D11DE56F2100441C04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4DD5D01DE56F2100441C04 /* AppDelegate.m */; };
 		8E4DD5D91DE56F2100441C04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E4DD5D81DE56F2100441C04 /* Assets.xcassets */; };
@@ -294,6 +298,14 @@
 		8E161B461DE590050070CA50 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		8E161B471DE590050070CA50 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		8E161B7A1DE5A68F0070CA50 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		8E389A491DED244D006C4CBF /* ComperesModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComperesModel.h; sourceTree = "<group>"; };
+		8E389A4A1DED244D006C4CBF /* ComperesModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComperesModel.m; sourceTree = "<group>"; };
+		8E389A4C1DED468C006C4CBF /* VideoListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoListController.h; sourceTree = "<group>"; };
+		8E389A4D1DED468C006C4CBF /* VideoListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoListController.m; sourceTree = "<group>"; };
+		8E389A4F1DED6018006C4CBF /* MatchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchViewController.h; sourceTree = "<group>"; };
+		8E389A501DED6018006C4CBF /* MatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchViewController.m; sourceTree = "<group>"; };
+		8E389A521DED6AC0006C4CBF /* MatchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchModel.h; sourceTree = "<group>"; };
+		8E389A531DED6AC0006C4CBF /* MatchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchModel.m; sourceTree = "<group>"; };
 		8E4DD5C91DE56F2100441C04 /* chardlol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chardlol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4DD5CD1DE56F2100441C04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8E4DD5CF1DE56F2100441C04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -702,6 +714,8 @@
 				847AA8381DE8885F007B3EF7 /* CHWebViewController.m */,
 				847AA8ED1DE9609D007B3EF7 /* MoviePlayerViewController.h */,
 				847AA8EE1DE9609D007B3EF7 /* MoviePlayerViewController.m */,
+				8E389A4C1DED468C006C4CBF /* VideoListController.h */,
+				8E389A4D1DED468C006C4CBF /* VideoListController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -756,6 +770,8 @@
 				8E7FF91C1DE7D2DE0003482F /* ComperesController.m */,
 				8E7FF91D1DE7D2DE0003482F /* HeroesController.h */,
 				8E7FF91E1DE7D2DE0003482F /* HeroesController.m */,
+				8E389A4F1DED6018006C4CBF /* MatchViewController.h */,
+				8E389A501DED6018006C4CBF /* MatchViewController.m */,
 				8E7FF91F1DE7D2DE0003482F /* Model */,
 				8E7FF9221DE7D2DE0003482F /* View */,
 			);
@@ -767,6 +783,10 @@
 			children = (
 				8E7FF9201DE7D2DE0003482F /* HeroModel.h */,
 				8E7FF9211DE7D2DE0003482F /* HeroModel.m */,
+				8E389A491DED244D006C4CBF /* ComperesModel.h */,
+				8E389A4A1DED244D006C4CBF /* ComperesModel.m */,
+				8E389A521DED6AC0006C4CBF /* MatchModel.h */,
+				8E389A531DED6AC0006C4CBF /* MatchModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -892,10 +912,12 @@
 				8E7FF93A1DE81B800003482F /* SMPageControl.m in Sources */,
 				841A60E71DEACD730053717A /* CHCustomCell.m in Sources */,
 				847AA85D1DE8AC99007B3EF7 /* UIImageView+ZFCache.m in Sources */,
+				8E389A4B1DED244D006C4CBF /* ComperesModel.m in Sources */,
 				8E161B4F1DE590050070CA50 /* SDWebImageDecoder.m in Sources */,
 				847AA8671DE8AC99007B3EF7 /* ZFPlayerView.m in Sources */,
 				8E4DD5E51DE573FE00441C04 /* MainTabBarController.m in Sources */,
 				8E161B5A1DE590050070CA50 /* UIView+WebCache.m in Sources */,
+				8E389A511DED6018006C4CBF /* MatchViewController.m in Sources */,
 				847AA8DF1DE8B0D2007B3EF7 /* MASViewAttribute.m in Sources */,
 				847AA8BF1DE8AF9E007B3EF7 /* ASIS3Request.m in Sources */,
 				847AA8E21DE8B0D2007B3EF7 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
@@ -940,6 +962,7 @@
 				847AA85C1DE8AC99007B3EF7 /* ASValueTrackingSlider.m in Sources */,
 				847AA8E11DE8B0D2007B3EF7 /* NSArray+MASAdditions.m in Sources */,
 				847AA8631DE8AC99007B3EF7 /* ZFBrightnessView.m in Sources */,
+				8E389A541DED6AC0006C4CBF /* MatchModel.m in Sources */,
 				847AA8B91DE8AF9E007B3EF7 /* ASICloudFilesObjectRequest.m in Sources */,
 				847AA8EC1DE8B18B007B3EF7 /* README.md in Sources */,
 				8E161B541DE590050070CA50 /* UIButton+WebCache.m in Sources */,
@@ -969,6 +992,7 @@
 				8E7FF92F1DE7DC300003482F /* RecommendModel.m in Sources */,
 				8E161B4C1DE590050070CA50 /* SDImageCache.m in Sources */,
 				847AA8BD1DE8AF9E007B3EF7 /* ASIS3BucketRequest.m in Sources */,
+				8E389A4E1DED468C006C4CBF /* VideoListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

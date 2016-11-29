@@ -1,20 +1,18 @@
 //
-//  ComperesController.m
+//  MatchViewController.m
 //  chardlol
 //
-//  Created by ChardLl on 2016/11/24.
+//  Created by ChardLl on 2016/11/29.
 //  Copyright © 2016年 com.chard. All rights reserved.
 //
 
-#import "ComperesController.h"
+#import "MatchViewController.h"
 #import "RequestTool.h"
+#import "MatchModel.h"
 #import "CHCustomCell.h"
-#import "ComperesModel.h"
 #import "UIImageView+WebCache.h"
 
-#define userslist @"89323481,99201492,25003662,86787875,91386394,76521919,86364302,346799477,431098561,340703547,14771885,369136383,57379868,111568632,455360660,87581910,70802174,141103004,94442014,67612492,45810217,340647717,344782203,155410757,136141036,134336394,148833979,97764116,146341241,90827101,19654343,138108211,65078683,104820044,110299062,98073387,128560709"
-
-@interface ComperesController () <UITableViewDataSource,UITableViewDelegate>
+@interface MatchViewController ()
 
 @property (nonatomic,strong) UITableView *tableView;
 
@@ -22,13 +20,11 @@
 
 @end
 
-@implementation ComperesController
+@implementation MatchViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = @"解说";
-    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
     
     [self loadData];
@@ -37,23 +33,23 @@
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
+    
     self.tableView.frame = self.view.bounds;
 }
 
 - (void)loadData
 {
-    NSDictionary *params = @{@"client_id":yk_clientid,
-                             @"user_ids":userslist};
-    [RequestTool POST:yk_users Parameters:params Successed:^(NSDictionary *resData) {
+    [RequestTool GET:match_list Parameters:nil Successed:^(NSDictionary *resData) {
         
-        NSLog(@"data : %@",resData);
         
         [self.dataSource removeAllObjects];
-        for (NSDictionary *dic in resData[@"users"]) {
-            ComperesModel *com = [ComperesModel comperesWithDic:dic];
-            [self.dataSource addObject:com];
+        for (NSDictionary *dic in resData[@"data"][@"gameList"]) {
+            MatchModel *match = [MatchModel matchWithDic:dic];
+            [self.dataSource addObject:match];
         }
         [self.tableView reloadData];
+        NSLog(@" data : %@",resData);
+        
         
     } Failed:^(NSError *error) {
         
@@ -65,10 +61,6 @@
 {
     if (!_tableView) {
         _tableView = [[UITableView alloc] init];
-        _tableView.dataSource = self;
-        _tableView.delegate = self;
-        _tableView.tableFooterView = [UIView new];
-        _tableView.rowHeight = 80;
     }
     return _tableView;
 }
@@ -96,10 +88,10 @@
 {
     CHCustomCell *cell = [CHCustomCell cellWithTableView:tableView];
     
-    ComperesModel *model = self.dataSource[indexPath.row];
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.avatar] placeholderImage:[UIImage imageNamed:@"placeholder"]];
-    cell.textLabel.text = model.name;
-    cell.detailTextLabel.text = model.desc;
+    MatchModel *model = self.dataSource[indexPath.row];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.gameLogo] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    cell.textLabel.text = model.bGameName;
+    cell.detailTextLabel.text = model.sGameName;
     
     return cell;
 }

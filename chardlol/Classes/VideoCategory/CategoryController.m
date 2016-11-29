@@ -11,6 +11,7 @@
 #import "ComperesController.h"
 #import "CHCustomCell.h"
 #import "SettingController.h"
+#import "MatchViewController.h"
 
 @interface CategoryController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -119,7 +120,9 @@
         }
             break;
         case 2:{
-            
+            MatchViewController *match = [[MatchViewController alloc] init];
+            [match setHidesBottomBarWhenPushed:YES];
+            [self.navigationController pushViewController:match animated:YES];
         }
             break;
         case 3:{
