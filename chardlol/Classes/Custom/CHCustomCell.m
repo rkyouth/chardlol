@@ -33,9 +33,10 @@
     if (self) {
         self.detailTextLabel.textColor = [UIColor lightGrayColor];
         self.imageView.clipsToBounds = YES;
-        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
 //        self.imageView.layer.cornerRadius = 5;
 //        self.imageView.clipsToBounds = YES;
+        
     }
     return self;
 }
@@ -45,8 +46,17 @@
     [super layoutSubviews];
     
     CGFloat wh = self.contentView.frame.size.height - 20;
-    self.imageView.bounds = CGRectMake(0, 0, wh, wh);
+    self.imageView.frame = CGRectMake(10, 10, wh, wh);
     
+    CGRect textRect = self.textLabel.frame;
+    textRect.origin.x = CGRectGetMaxX(self.imageView.frame) + 20;
+    self.textLabel.frame = textRect;
+    
+    CGRect detailRect = self.detailTextLabel.frame;
+    detailRect.origin.x = CGRectGetMaxX(self.imageView.frame) + 20;
+    self.detailTextLabel.frame = detailRect;
+    
+    self.separatorInset = UIEdgeInsetsMake(0, textRect.origin.x, 0, 0);
 }
 
 @end

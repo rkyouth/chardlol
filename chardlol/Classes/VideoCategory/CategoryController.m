@@ -12,12 +12,15 @@
 #import "CHCustomCell.h"
 #import "SettingController.h"
 #import "MatchViewController.h"
+#import "SDCycleScrollView.h"
 
-@interface CategoryController () <UITableViewDataSource,UITableViewDelegate>
+@interface CategoryController () <UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
 
 @property (nonatomic,strong) NSArray *categories;
+
+@property (nonatomic,strong) SDCycleScrollView *cycleScrollView;
 
 @end
 
@@ -30,6 +33,9 @@
     self.navigationItem.rightBarButtonItem = [self settingsBarButtonItem];
     
     [self.view addSubview:self.tableView];
+    
+    self.tableView.tableHeaderView = self.cycleScrollView;
+    self.cycleScrollView.imageURLStringsGroup = @[@"http://ww4.sinaimg.cn/mw690/005GC2Nwgw1fa9yz2pon3j30ku0bht9p.jpg",@"http://ww1.sinaimg.cn/mw690/005GC2Nwgw1f5za8shrrlj30gt0tfq70.jpg"];
 }
 
 - (void)viewWillLayoutSubviews
@@ -42,7 +48,7 @@
 - (UITableView *)tableView
 {
     if (!_tableView) {
-        _tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+        _tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.tableFooterView = [[UIView alloc] init];
@@ -70,11 +76,24 @@
                                            action:@selector(didTapSettingsButton:)];
 }
 
+- (SDCycleScrollView *)cycleScrollView
+{
+    if (!_cycleScrollView) {
+        CGFloat H = self.view.frame.size.width * 9 / 16;
+        CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, H);
+        _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:rect delegate:self placeholderImage:[UIImage imageNamed:@"placeholde"]];
+        _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
+        _cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleNone;
+        _cycleScrollView.autoScrollTimeInterval = 5;
+        
+        
+    }
+    return _cycleScrollView;
+}
+
 #pragma mark - ui_response
 - (void)didTapSettingsButton:(UIBarButtonItem *)item
-{
-    NSLog(@"...");
-    
+{    
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[SettingController alloc] init]];
     [self.navigationController presentViewController:nav animated:YES completion:nil];
 }
@@ -133,6 +152,13 @@
         default:
             break;
     }
+}
+
+
+#pragma mark - SDCycleScrollViewDelegate
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
+{
+    NSLog(@"cycle : %ld",(long)index);
 }
 
 @end

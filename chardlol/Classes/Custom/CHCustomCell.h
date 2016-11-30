@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface CHCustomCell : UITableViewCell
+
+@property (nonatomic,strong) UIImageView *picView;
+
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 @end

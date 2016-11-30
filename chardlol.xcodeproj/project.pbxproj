@@ -96,6 +96,16 @@
 		8E389A4E1DED468C006C4CBF /* VideoListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A4D1DED468C006C4CBF /* VideoListController.m */; };
 		8E389A511DED6018006C4CBF /* MatchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A501DED6018006C4CBF /* MatchViewController.m */; };
 		8E389A541DED6AC0006C4CBF /* MatchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A531DED6AC0006C4CBF /* MatchModel.m */; };
+		8E389A581DEE71CE006C4CBF /* StrategyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A571DEE71CE006C4CBF /* StrategyModel.m */; };
+		8E389A691DEE790E006C4CBF /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A5C1DEE790E006C4CBF /* TAAbstractDotView.m */; };
+		8E389A6A1DEE790E006C4CBF /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A5E1DEE790E006C4CBF /* TAAnimatedDotView.m */; };
+		8E389A6B1DEE790E006C4CBF /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A601DEE790E006C4CBF /* TADotView.m */; };
+		8E389A6C1DEE790E006C4CBF /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A621DEE790E006C4CBF /* TAPageControl.m */; };
+		8E389A6D1DEE790E006C4CBF /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A641DEE790E006C4CBF /* SDCollectionViewCell.m */; };
+		8E389A6E1DEE790E006C4CBF /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A661DEE790E006C4CBF /* SDCycleScrollView.m */; };
+		8E389A6F1DEE790E006C4CBF /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A681DEE790E006C4CBF /* UIView+SDExtension.m */; };
+		8E389A711DEEAAB9006C4CBF /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E389A701DEEAAB9006C4CBF /* GoogleMobileAds.framework */; };
+		8E389A761DEEB47A006C4CBF /* AdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A751DEEB47A006C4CBF /* AdManager.m */; };
 		8E4DD5CE1DE56F2100441C04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4DD5CD1DE56F2100441C04 /* main.m */; };
 		8E4DD5D11DE56F2100441C04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4DD5D01DE56F2100441C04 /* AppDelegate.m */; };
 		8E4DD5D91DE56F2100441C04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E4DD5D81DE56F2100441C04 /* Assets.xcassets */; };
@@ -306,6 +316,25 @@
 		8E389A501DED6018006C4CBF /* MatchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchViewController.m; sourceTree = "<group>"; };
 		8E389A521DED6AC0006C4CBF /* MatchModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchModel.h; sourceTree = "<group>"; };
 		8E389A531DED6AC0006C4CBF /* MatchModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchModel.m; sourceTree = "<group>"; };
+		8E389A561DEE71CE006C4CBF /* StrategyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StrategyModel.h; sourceTree = "<group>"; };
+		8E389A571DEE71CE006C4CBF /* StrategyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StrategyModel.m; sourceTree = "<group>"; };
+		8E389A5B1DEE790E006C4CBF /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		8E389A5C1DEE790E006C4CBF /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		8E389A5D1DEE790E006C4CBF /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		8E389A5E1DEE790E006C4CBF /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		8E389A5F1DEE790E006C4CBF /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		8E389A601DEE790E006C4CBF /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		8E389A611DEE790E006C4CBF /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		8E389A621DEE790E006C4CBF /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		8E389A631DEE790E006C4CBF /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
+		8E389A641DEE790E006C4CBF /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
+		8E389A651DEE790E006C4CBF /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
+		8E389A661DEE790E006C4CBF /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
+		8E389A671DEE790E006C4CBF /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		8E389A681DEE790E006C4CBF /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		8E389A701DEEAAB9006C4CBF /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
+		8E389A741DEEB47A006C4CBF /* AdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdManager.h; sourceTree = "<group>"; };
+		8E389A751DEEB47A006C4CBF /* AdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdManager.m; sourceTree = "<group>"; };
 		8E4DD5C91DE56F2100441C04 /* chardlol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chardlol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4DD5CD1DE56F2100441C04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8E4DD5CF1DE56F2100441C04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -348,6 +377,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E389A711DEEAAB9006C4CBF /* GoogleMobileAds.framework in Frameworks */,
 				8E161B7B1DE5A68F0070CA50 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,6 +614,8 @@
 				8E161B141DE588AF0070CA50 /* RequestTool.m */,
 				8E7FF93B1DE83E830003482F /* AuthManager.h */,
 				8E7FF93C1DE83E830003482F /* AuthManager.m */,
+				8E389A741DEEB47A006C4CBF /* AdManager.h */,
+				8E389A751DEEB47A006C4CBF /* AdManager.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -642,6 +674,44 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8E389A551DEE719F006C4CBF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E389A561DEE71CE006C4CBF /* StrategyModel.h */,
+				8E389A571DEE71CE006C4CBF /* StrategyModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8E389A591DEE790E006C4CBF /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				8E389A5A1DEE790E006C4CBF /* PageControl */,
+				8E389A631DEE790E006C4CBF /* SDCollectionViewCell.h */,
+				8E389A641DEE790E006C4CBF /* SDCollectionViewCell.m */,
+				8E389A651DEE790E006C4CBF /* SDCycleScrollView.h */,
+				8E389A661DEE790E006C4CBF /* SDCycleScrollView.m */,
+				8E389A671DEE790E006C4CBF /* UIView+SDExtension.h */,
+				8E389A681DEE790E006C4CBF /* UIView+SDExtension.m */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		8E389A5A1DEE790E006C4CBF /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				8E389A5B1DEE790E006C4CBF /* TAAbstractDotView.h */,
+				8E389A5C1DEE790E006C4CBF /* TAAbstractDotView.m */,
+				8E389A5D1DEE790E006C4CBF /* TAAnimatedDotView.h */,
+				8E389A5E1DEE790E006C4CBF /* TAAnimatedDotView.m */,
+				8E389A5F1DEE790E006C4CBF /* TADotView.h */,
+				8E389A601DEE790E006C4CBF /* TADotView.m */,
+				8E389A611DEE790E006C4CBF /* TAPageControl.h */,
+				8E389A621DEE790E006C4CBF /* TAPageControl.m */,
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
 		8E4DD5C01DE56F2100441C04 = {
 			isa = PBXGroup;
 			children = (
@@ -662,6 +732,7 @@
 		8E4DD5CB1DE56F2100441C04 /* chardlol */ = {
 			isa = PBXGroup;
 			children = (
+				8E389A701DEEAAB9006C4CBF /* GoogleMobileAds.framework */,
 				8E7FF90B1DE7D2DE0003482F /* Classes */,
 				8E161B121DE588820070CA50 /* Tools */,
 				8E4DD5E31DE573FE00441C04 /* MainTabBarController.h */,
@@ -688,6 +759,7 @@
 		8E4DD5F31DE583E900441C04 /* ThirdLib */ = {
 			isa = PBXGroup;
 			children = (
+				8E389A591DEE790E006C4CBF /* SDCycleScrollView */,
 				847AA8E51DE8B18B007B3EF7 /* Reachability */,
 				847AA8C11DE8B0D2007B3EF7 /* Masonry */,
 				847AA8761DE8AF9E007B3EF7 /* Classes */,
@@ -727,6 +799,7 @@
 				847AA8F81DE960F5007B3EF7 /* ZFDownloadViewController.m */,
 				8E7FF90D1DE7D2DE0003482F /* KeepingController.h */,
 				8E7FF90E1DE7D2DE0003482F /* KeepingController.m */,
+				8E389A551DEE719F006C4CBF /* Model */,
 				847AA8F01DE960BA007B3EF7 /* view */,
 			);
 			path = Keeping;
@@ -899,6 +972,7 @@
 				847AA8F91DE960F5007B3EF7 /* ZFDownloadViewController.m in Sources */,
 				847AA8AF1DE8AF9E007B3EF7 /* ASIFormDataRequest.m in Sources */,
 				847AA8AD1DE8AF9E007B3EF7 /* ASIDataDecompressor.m in Sources */,
+				8E389A6A1DEE790E006C4CBF /* TAAnimatedDotView.m in Sources */,
 				8E161B0D1DE588480070CA50 /* AFNetworkReachabilityManager.m in Sources */,
 				847AA8E31DE8B0D2007B3EF7 /* View+MASAdditions.m in Sources */,
 				847AA85E1DE8AC99007B3EF7 /* UINavigationController+ZFPlayerRotation.m in Sources */,
@@ -906,6 +980,7 @@
 				847AA8BC1DE8AF9E007B3EF7 /* ASIS3BucketObject.m in Sources */,
 				8E4DD5CE1DE56F2100441C04 /* main.m in Sources */,
 				847AA85B1DE8AC99007B3EF7 /* ASValuePopUpView.m in Sources */,
+				8E389A6E1DEE790E006C4CBF /* SDCycleScrollView.m in Sources */,
 				8E161B4A1DE590050070CA50 /* NSData+ImageContentType.m in Sources */,
 				847AA8751DE8AEDB007B3EF7 /* ZFHttpRequest.m in Sources */,
 				8E161B521DE590050070CA50 /* SDWebImageManager.m in Sources */,
@@ -924,6 +999,8 @@
 				8E161B531DE590050070CA50 /* SDWebImagePrefetcher.m in Sources */,
 				847AA8661DE8AC99007B3EF7 /* ZFPlayerModel.m in Sources */,
 				8E7FF9241DE7D2DE0003482F /* RecommendController.m in Sources */,
+				8E389A691DEE790E006C4CBF /* TAAbstractDotView.m in Sources */,
+				8E389A6D1DEE790E006C4CBF /* SDCollectionViewCell.m in Sources */,
 				847AA8B41DE8AF9E007B3EF7 /* ASICloudFilesCDNRequest.m in Sources */,
 				8E7FF9271DE7D2DE0003482F /* ComperesController.m in Sources */,
 				847AA8BB1DE8AF9E007B3EF7 /* ASIS3Bucket.m in Sources */,
@@ -935,6 +1012,7 @@
 				8E161B0F1DE588480070CA50 /* AFURLRequestSerialization.m in Sources */,
 				8E161B551DE590050070CA50 /* UIImage+GIF.m in Sources */,
 				847AA8731DE8AEDB007B3EF7 /* ZFDownloadManager.m in Sources */,
+				8E389A581DEE71CE006C4CBF /* StrategyModel.m in Sources */,
 				847AA8391DE8885F007B3EF7 /* CHWebViewController.m in Sources */,
 				8E161B5B1DE590050070CA50 /* UIView+WebCacheOperation.m in Sources */,
 				8E7FF9251DE7D2DE0003482F /* SettingController.m in Sources */,
@@ -957,6 +1035,7 @@
 				847AA8AC1DE8AF9E007B3EF7 /* ASIDataCompressor.m in Sources */,
 				8E161B101DE588480070CA50 /* AFURLResponseSerialization.m in Sources */,
 				847AA8741DE8AEDB007B3EF7 /* ZFFileModel.m in Sources */,
+				8E389A761DEEB47A006C4CBF /* AdManager.m in Sources */,
 				847AA8E41DE8B0D2007B3EF7 /* ViewController+MASAdditions.m in Sources */,
 				8E161B561DE590050070CA50 /* UIImage+MultiFormat.m in Sources */,
 				847AA85C1DE8AC99007B3EF7 /* ASValueTrackingSlider.m in Sources */,
@@ -969,6 +1048,7 @@
 				8E7FF93D1DE83E830003482F /* AuthManager.m in Sources */,
 				847AA8DE1DE8B0D2007B3EF7 /* MASLayoutConstraint.m in Sources */,
 				8E7FF9351DE819FA0003482F /* EasePageViewController.m in Sources */,
+				8E389A6B1DEE790E006C4CBF /* TADotView.m in Sources */,
 				847AA8721DE8AEDB007B3EF7 /* ZFCommonHelper.m in Sources */,
 				847AA8BE1DE8AF9E007B3EF7 /* ASIS3ObjectRequest.m in Sources */,
 				847AA85F1DE8AC99007B3EF7 /* UITabBarController+ZFPlayerRotation.m in Sources */,
@@ -988,8 +1068,10 @@
 				847AA8B51DE8AF9E007B3EF7 /* ASICloudFilesContainer.m in Sources */,
 				847AA8EB1DE8B18B007B3EF7 /* Reachability.m in Sources */,
 				847AA8B11DE8AF9E007B3EF7 /* ASIInputStream.m in Sources */,
+				8E389A6F1DEE790E006C4CBF /* UIView+SDExtension.m in Sources */,
 				8E161B151DE588AF0070CA50 /* RequestTool.m in Sources */,
 				8E7FF92F1DE7DC300003482F /* RecommendModel.m in Sources */,
+				8E389A6C1DEE790E006C4CBF /* TAPageControl.m in Sources */,
 				8E161B4C1DE590050070CA50 /* SDImageCache.m in Sources */,
 				847AA8BD1DE8AF9E007B3EF7 /* ASIS3BucketRequest.m in Sources */,
 				8E389A4E1DED468C006C4CBF /* VideoListController.m in Sources */,
@@ -1103,7 +1185,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XS4GBKTG77;
-				FRAMEWORK_SEARCH_PATHS = /usr/lib/libxml2.tbd;
+				FRAMEWORK_SEARCH_PATHS = (
+					/usr/lib/libxml2.tbd,
+					"$(PROJECT_DIR)/chardlol",
+				);
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = chardlol/Info.plist;
@@ -1121,7 +1206,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = XS4GBKTG77;
-				FRAMEWORK_SEARCH_PATHS = /usr/lib/libxml2.tbd;
+				FRAMEWORK_SEARCH_PATHS = (
+					/usr/lib/libxml2.tbd,
+					"$(PROJECT_DIR)/chardlol",
+				);
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				INFOPLIST_FILE = chardlol/Info.plist;

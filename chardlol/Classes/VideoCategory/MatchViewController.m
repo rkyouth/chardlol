@@ -42,13 +42,13 @@
     [RequestTool GET:match_list Parameters:nil Successed:^(NSDictionary *resData) {
         
         
-        [self.dataSource removeAllObjects];
-        for (NSDictionary *dic in resData[@"data"][@"gameList"]) {
-            MatchModel *match = [MatchModel matchWithDic:dic];
-            [self.dataSource addObject:match];
-        }
-        [self.tableView reloadData];
-        NSLog(@" data : %@",resData);
+//        [self.dataSource removeAllObjects];
+//        for (NSDictionary *dic in resData[@"data"][@"gameList"]) {
+//            MatchModel *match = [MatchModel matchWithDic:dic];
+//            [self.dataSource addObject:match];
+//        }
+//        [self.tableView reloadData];
+//        NSLog(@" data : %@",resData);
         
         
     } Failed:^(NSError *error) {

@@ -27,7 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    NSArray *titles = @[@"推 荐",@"分 类",@"收 藏"];
+    NSArray *titles = @[@"推 荐",@"分 类",@"攻 略"];
     
     for (int i = 0; i < titles.count; i ++) {
         NSString *title = titles[i];

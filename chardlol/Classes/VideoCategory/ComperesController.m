@@ -20,6 +20,8 @@
 
 @property (nonatomic,strong) NSMutableArray *dataSource;
 
+@property (nonatomic,strong) UIActivityIndicatorView *indicatorView;
+
 @end
 
 @implementation ComperesController
@@ -31,6 +33,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
     
+    [self.view addSubview:self.indicatorView];
+    [self.indicatorView startAnimating];
+    
     [self loadData];
 }
 
@@ -38,6 +43,8 @@
 {
     [super viewWillLayoutSubviews];
     self.tableView.frame = self.view.bounds;
+    
+    self.indicatorView.center = self.tableView.center;
 }
 
 - (void)loadData
@@ -46,8 +53,6 @@
                              @"user_ids":userslist};
     [RequestTool POST:yk_users Parameters:params Successed:^(NSDictionary *resData) {
         
-        NSLog(@"data : %@",resData);
-        
         [self.dataSource removeAllObjects];
         for (NSDictionary *dic in resData[@"users"]) {
             ComperesModel *com = [ComperesModel comperesWithDic:dic];
@@ -55,8 +60,10 @@
         }
         [self.tableView reloadData];
         
-    } Failed:^(NSError *error) {
+        [self.indicatorView stopAnimating];
         
+    } Failed:^(NSError *error) {
+        [self.indicatorView stopAnimating];
     }];
 }
 
@@ -79,6 +86,15 @@
         _dataSource = [NSMutableArray array];
     }
     return _dataSource;
+}
+
+- (UIActivityIndicatorView *)indicatorView
+{
+    if (!_indicatorView) {
+        _indicatorView = [[UIActivityIndicatorView alloc] init];
+        _indicatorView.color = [UIColor grayColor];
+    }
+    return _indicatorView;
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate

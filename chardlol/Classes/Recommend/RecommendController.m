@@ -15,6 +15,7 @@
 #import "ZFPlayer.h"
 #import "ZFDownloadManager.h"
 #import "SettingController.h"
+@import GoogleMobileAds;
 
 @interface RecommendController () <UITableViewDataSource,UITableViewDelegate,ZFPlayerDelegate,UIScrollViewDelegate>
 
@@ -95,7 +96,10 @@
         
         [self.refreshControl endRefreshing];
         [self.indicatorView stopAnimating];
-    } Failed:^(NSError *error) { [self.refreshControl endRefreshing]; }];
+    } Failed:^(NSError *error) {
+        [self.refreshControl endRefreshing];
+        [self.indicatorView stopAnimating];
+    }];
 }
 
 - (void)loadMoreData
@@ -187,6 +191,7 @@
 {
     if (!_indicatorView) {
         _indicatorView = [[UIActivityIndicatorView alloc] init];
+        _indicatorView.color = [UIColor grayColor];
     }
     return _indicatorView;
 }

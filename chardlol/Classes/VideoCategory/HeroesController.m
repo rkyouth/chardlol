@@ -20,6 +20,8 @@
 
 @property (nonatomic,strong) NSMutableArray *heroIcons;
 
+@property (nonatomic,strong) UIActivityIndicatorView *indicatorView;
+
 @end
 
 @implementation HeroesController
@@ -32,6 +34,9 @@
 
     [self.view addSubview:self.tableView];
     
+    [self.view addSubview:self.indicatorView];
+    [self.indicatorView startAnimating];
+    
     [self loadData];
 }
 
@@ -40,6 +45,8 @@
     [super viewWillLayoutSubviews];
     
     self.tableView.frame = self.view.bounds;
+    
+    self.indicatorView.center = self.tableView.center;
 }
 
 - (void)loadData
@@ -55,8 +62,10 @@
         }
         [self.tableView reloadData];
         
-    } Failed:^(NSError *error) {
+        [self.indicatorView stopAnimating];
         
+    } Failed:^(NSError *error) {
+        [self.indicatorView stopAnimating];
     }];
 }
 
@@ -79,6 +88,15 @@
         _heroes = [[NSMutableArray alloc] init];
     }
     return _heroes;
+}
+
+- (UIActivityIndicatorView *)indicatorView
+{
+    if (!_indicatorView) {
+        _indicatorView = [[UIActivityIndicatorView alloc] init];
+        _indicatorView.color = [UIColor grayColor];
+    }
+    return _indicatorView;
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate
