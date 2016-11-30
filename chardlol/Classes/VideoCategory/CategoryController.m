@@ -35,7 +35,7 @@
     [self.view addSubview:self.tableView];
     
     self.tableView.tableHeaderView = self.cycleScrollView;
-    self.cycleScrollView.imageURLStringsGroup = @[@"http://ww4.sinaimg.cn/mw690/005GC2Nwgw1fa9yz2pon3j30ku0bht9p.jpg",@"http://ww1.sinaimg.cn/mw690/005GC2Nwgw1f5za8shrrlj30gt0tfq70.jpg"];
+    self.cycleScrollView.imageURLStringsGroup = @[@"http://ww3.sinaimg.cn/mw690/005GC2Nwgw1faag8o5nurj30ku0bhmyf.jpg",@"http://ww1.sinaimg.cn/mw690/005GC2Nwgw1f5za8shrrlj30gt0tfq70.jpg"];
 }
 
 - (void)viewWillLayoutSubviews
@@ -84,7 +84,7 @@
         _cycleScrollView = [SDCycleScrollView cycleScrollViewWithFrame:rect delegate:self placeholderImage:[UIImage imageNamed:@"placeholde"]];
         _cycleScrollView.pageControlAliment = SDCycleScrollViewPageContolAlimentRight;
         _cycleScrollView.pageControlStyle = SDCycleScrollViewPageContolStyleNone;
-        _cycleScrollView.autoScrollTimeInterval = 5;
+        _cycleScrollView.autoScrollTimeInterval = 12;
         
         
     }
@@ -154,6 +154,10 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 1.0;
+}
 
 #pragma mark - SDCycleScrollViewDelegate
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index

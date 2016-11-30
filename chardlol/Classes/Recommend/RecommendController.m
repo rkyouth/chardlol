@@ -15,7 +15,6 @@
 #import "ZFPlayer.h"
 #import "ZFDownloadManager.h"
 #import "SettingController.h"
-@import GoogleMobileAds;
 
 @interface RecommendController () <UITableViewDataSource,UITableViewDelegate,ZFPlayerDelegate,UIScrollViewDelegate>
 

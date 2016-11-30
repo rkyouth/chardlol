@@ -7,7 +7,6 @@
 //
 
 #import "AdManager.h"
-@import GoogleMobileAds;
 
 @implementation AdManager
 

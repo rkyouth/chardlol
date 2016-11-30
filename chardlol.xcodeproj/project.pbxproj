@@ -104,7 +104,6 @@
 		8E389A6D1DEE790E006C4CBF /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A641DEE790E006C4CBF /* SDCollectionViewCell.m */; };
 		8E389A6E1DEE790E006C4CBF /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A661DEE790E006C4CBF /* SDCycleScrollView.m */; };
 		8E389A6F1DEE790E006C4CBF /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A681DEE790E006C4CBF /* UIView+SDExtension.m */; };
-		8E389A711DEEAAB9006C4CBF /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E389A701DEEAAB9006C4CBF /* GoogleMobileAds.framework */; };
 		8E389A761DEEB47A006C4CBF /* AdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A751DEEB47A006C4CBF /* AdManager.m */; };
 		8E4DD5CE1DE56F2100441C04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4DD5CD1DE56F2100441C04 /* main.m */; };
 		8E4DD5D11DE56F2100441C04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4DD5D01DE56F2100441C04 /* AppDelegate.m */; };
@@ -332,7 +331,6 @@
 		8E389A661DEE790E006C4CBF /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
 		8E389A671DEE790E006C4CBF /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
 		8E389A681DEE790E006C4CBF /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
-		8E389A701DEEAAB9006C4CBF /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		8E389A741DEEB47A006C4CBF /* AdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdManager.h; sourceTree = "<group>"; };
 		8E389A751DEEB47A006C4CBF /* AdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdManager.m; sourceTree = "<group>"; };
 		8E4DD5C91DE56F2100441C04 /* chardlol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chardlol.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -377,7 +375,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E389A711DEEAAB9006C4CBF /* GoogleMobileAds.framework in Frameworks */,
 				8E161B7B1DE5A68F0070CA50 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -732,7 +729,6 @@
 		8E4DD5CB1DE56F2100441C04 /* chardlol */ = {
 			isa = PBXGroup;
 			children = (
-				8E389A701DEEAAB9006C4CBF /* GoogleMobileAds.framework */,
 				8E7FF90B1DE7D2DE0003482F /* Classes */,
 				8E161B121DE588820070CA50 /* Tools */,
 				8E4DD5E31DE573FE00441C04 /* MainTabBarController.h */,
