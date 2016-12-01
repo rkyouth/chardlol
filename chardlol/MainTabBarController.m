@@ -69,7 +69,8 @@
     }
     vc.view.backgroundColor = [UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1];
     vc.title = title;
-    self.tabBar.tintColor = [UIColor colorWithRed:24/255.0 green:83/255.0 blue:161/255.0 alpha:1];
+//    self.tabBar.tintColor = [UIColor colorWithRed:216/255.0 green:30/255.0 blue:6/255.0 alpha:1];
+    self.tabBar.tintColor = self.view.tintColor;
 //    if (index != 2) {
         UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
 //    nav.navigationBar.translucent = NO;

@@ -220,7 +220,7 @@
     CGFloat maximumOffset = size.height;
     
     
-    //当currentOffset与maximumOffset的值相等时，说明scrollview已经滑到底部了。也可以根据这两个值的差来让他做点其他的什么事情
+    //当currentOffset与maximumOffset的值相等时，说明scrollview已经滑到底部了。
     if(currentOffset == maximumOffset)
     {
         if (self.nextPage) {

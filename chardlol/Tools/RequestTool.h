@@ -19,6 +19,7 @@
 #define yk_clientid @"92927d657412b8f8"
 #define yk_secretid @"444f27bd42fbf358d15b129315bb631b"
 #define yk_playlistid @"28731667"
+#define yk_feixiongid @"812557199"
 #define authorize_url @"https://openapi.youku.com/v2/oauth2/authorize"
 #define accestoken_url @"https://openapi.youku.com/v2/oauth2/token"
 #define yk_playurl @"http://pl.youku.com/playlist/m3u8?vid=%@&ts=1480098062.0&ctype=12&token=3739&keyframe=1&sid=848009806257712f776e6&ev=1&type=hd2&ep=eiacGkmEXs4G5ybYjz8bMSvlciIJXJZ3kkjP%2FJgxAcVQIa%2FB6DPcqJ63TfY%3D&oip=2067476272"
@@ -28,6 +29,7 @@
 #define match_list @"http://apps.game.qq.com/lol/match/app_apis/searchSGameList.php?a1=qtapp&a2=1480405711&a3=72a91959a23e77bdbfa899e71dadcb6e"
 #define strategy_list @"http://qt.qq.com/php_cgi/news/php/varcache_getnews.php"
 #define newsUrlPath   @"http://qt.qq.com/static/pages/news/phone/"
+#define yk_uservideos @"https://openapi.youku.com/v2/videos/by_user.json"
 
 
 @interface RequestTool : NSObject

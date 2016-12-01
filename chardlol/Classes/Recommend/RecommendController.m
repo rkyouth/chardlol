@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.page = 1;
+
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.refreshControl;
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -76,12 +76,13 @@
 #pragma mark - private
 - (void)loadData
 {
+    self.page = 1;
     NSDictionary *params = @{@"client_id":yk_clientid,
-                             @"playlist_id":yk_playlistid,
+                             @"user_id":yk_feixiongid,
                              @"page":[NSString stringWithFormat:@"%d",self.page],
                              @"count":@"10"
                              };
-    [RequestTool GET:recommend_list Parameters:params Successed:^(NSDictionary *resData) {
+    [RequestTool GET:yk_uservideos Parameters:params Successed:^(NSDictionary *resData) {
 
         self.total = [resData[@"total"] intValue];
         
@@ -90,6 +91,7 @@
         for (NSDictionary *dic in videos) {
             RecommendModel *model = [RecommendModel recommendWithDic:dic];
             [self.dataSource addObject:model];
+            
         }
         [self.tableView reloadData];
         
@@ -104,11 +106,11 @@
 - (void)loadMoreData
 {
     NSDictionary *params = @{@"client_id":yk_clientid,
-                             @"playlist_id":yk_playlistid,
+                             @"user_id":yk_feixiongid,
                              @"page":[NSString stringWithFormat:@"%d",self.page],
                              @"count":@"10"
                              };
-    [RequestTool GET:recommend_list Parameters:params Successed:^(NSDictionary *resData) {
+    [RequestTool GET:yk_uservideos Parameters:params Successed:^(NSDictionary *resData) {
         
         self.page = [resData[@"page"] intValue];
         
@@ -116,19 +118,24 @@
         for (NSDictionary *dic in videos) {
             RecommendModel *model = [RecommendModel recommendWithDic:dic];
             [self.dataSource addObject:model];
+            
         }
         [self.tableView reloadData];
+        
+        
         
     } Failed:^(NSError *error) {}];
 }
 
 - (void)refreshAction
 {
-    self.page = 1;
     [self loadData];
 }
 
-
+- (void)seqWithArr:(NSMutableArray *)arr
+{
+    
+}
 
 #pragma mark - getter
 - (UITableView *)tableView
@@ -262,7 +269,7 @@
 {
     if (section == 0) {
         self.adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 70)];
-        self.adView.backgroundColor = [UIColor orangeColor];
+//        self.adView.backgroundColor = [UIColor orangeColor];
         return self.adView;
     }
     return [[UIView alloc] init];
@@ -298,7 +305,7 @@
 
     
     //当currentOffset与maximumOffset的值相等时，说明scrollview已经滑到底部了。也可以根据这两个值的差来让他做点其他的什么事情
-    if(currentOffset == maximumOffset)
+    if(currentOffset >= maximumOffset)
     {
         self.page ++;
         
