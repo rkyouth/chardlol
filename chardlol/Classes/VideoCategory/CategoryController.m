@@ -61,10 +61,10 @@
 - (NSArray *)categories
 {
     if (!_categories) {
-        _categories = @[@{@"des":@"解 说",@"icon":@""},
-                        @{@"des":@"英 雄",@"icon":@""},
-                        @{@"des":@"联 赛",@"icon":@""},
-                        @{@"des":@"战 队",@"icon":@""}];
+        _categories = @[@{@"des":@"解 说",@"icon":@"00"},
+                        @{@"des":@"英 雄",@"icon":@"11"},
+                        @{@"des":@"联 赛",@"icon":@"22"},
+                        @{@"des":@"战 队",@"icon":@"33"}];
     }
     return _categories;
 }
@@ -118,8 +118,8 @@
         
         cell.textLabel.text = self.categories[indexPath.row][@"des"];
         cell.textLabel.font = [UIFont systemFontOfSize:18];
-        //    cell.textLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1];
-        //    cell.imageView.image = [UIImage imageNamed:self.categories[indexPath.row][@"icon"]];
+        cell.textLabel.textColor = [UIColor colorWithRed:80/255.0 green:80/255.0 blue:80/255.0 alpha:1];
+        cell.imageView.image = [UIImage imageNamed:self.categories[indexPath.row][@"icon"]];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
