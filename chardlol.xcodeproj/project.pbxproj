@@ -105,6 +105,10 @@
 		8E389A6E1DEE790E006C4CBF /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A661DEE790E006C4CBF /* SDCycleScrollView.m */; };
 		8E389A6F1DEE790E006C4CBF /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A681DEE790E006C4CBF /* UIView+SDExtension.m */; };
 		8E389A761DEEB47A006C4CBF /* AdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389A751DEEB47A006C4CBF /* AdManager.m */; };
+		8E389AB41DF10C0F006C4CBF /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389AB31DF10C0F006C4CBF /* HomeViewController.m */; };
+		8E389AB71DF120D3006C4CBF /* CHCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389AB61DF120D3006C4CBF /* CHCollectionCell.m */; };
+		8E389ABA1DF16E4D006C4CBF /* TableViewCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389AB91DF16E4D006C4CBF /* TableViewCCell.m */; };
+		8E389ABD1DF17D21006C4CBF /* CCellHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389ABC1DF17D21006C4CBF /* CCellHeadView.m */; };
 		8E4DD5CE1DE56F2100441C04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4DD5CD1DE56F2100441C04 /* main.m */; };
 		8E4DD5D11DE56F2100441C04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4DD5D01DE56F2100441C04 /* AppDelegate.m */; };
 		8E4DD5D91DE56F2100441C04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E4DD5D81DE56F2100441C04 /* Assets.xcassets */; };
@@ -333,6 +337,14 @@
 		8E389A681DEE790E006C4CBF /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		8E389A741DEEB47A006C4CBF /* AdManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdManager.h; sourceTree = "<group>"; };
 		8E389A751DEEB47A006C4CBF /* AdManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdManager.m; sourceTree = "<group>"; };
+		8E389AB21DF10C0F006C4CBF /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		8E389AB31DF10C0F006C4CBF /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		8E389AB51DF120D3006C4CBF /* CHCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHCollectionCell.h; sourceTree = "<group>"; };
+		8E389AB61DF120D3006C4CBF /* CHCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHCollectionCell.m; sourceTree = "<group>"; };
+		8E389AB81DF16E4D006C4CBF /* TableViewCCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCCell.h; sourceTree = "<group>"; };
+		8E389AB91DF16E4D006C4CBF /* TableViewCCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCCell.m; sourceTree = "<group>"; };
+		8E389ABB1DF17D21006C4CBF /* CCellHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCellHeadView.h; sourceTree = "<group>"; };
+		8E389ABC1DF17D21006C4CBF /* CCellHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCellHeadView.m; sourceTree = "<group>"; };
 		8E4DD5C91DE56F2100441C04 /* chardlol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chardlol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4DD5CD1DE56F2100441C04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8E4DD5CF1DE56F2100441C04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -387,6 +399,8 @@
 			children = (
 				841A60E51DEACD730053717A /* CHCustomCell.h */,
 				841A60E61DEACD730053717A /* CHCustomCell.m */,
+				8E389AB81DF16E4D006C4CBF /* TableViewCCell.h */,
+				8E389AB91DF16E4D006C4CBF /* TableViewCCell.m */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -709,6 +723,35 @@
 			path = PageControl;
 			sourceTree = "<group>";
 		};
+		8E389AAF1DF10BD7006C4CBF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				8E389AB21DF10C0F006C4CBF /* HomeViewController.h */,
+				8E389AB31DF10C0F006C4CBF /* HomeViewController.m */,
+				8E389AB01DF10BEF006C4CBF /* Model */,
+				8E389AB11DF10BEF006C4CBF /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		8E389AB01DF10BEF006C4CBF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8E389AB11DF10BEF006C4CBF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8E389AB51DF120D3006C4CBF /* CHCollectionCell.h */,
+				8E389AB61DF120D3006C4CBF /* CHCollectionCell.m */,
+				8E389ABB1DF17D21006C4CBF /* CCellHeadView.h */,
+				8E389ABC1DF17D21006C4CBF /* CCellHeadView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		8E4DD5C01DE56F2100441C04 = {
 			isa = PBXGroup;
 			children = (
@@ -773,6 +816,7 @@
 			isa = PBXGroup;
 			children = (
 				841A60E41DEACD450053717A /* Custom */,
+				8E389AAF1DF10BD7006C4CBF /* Home */,
 				8E7FF9111DE7D2DE0003482F /* Recommend */,
 				8E7FF9181DE7D2DE0003482F /* VideoCategory */,
 				8E7FF90C1DE7D2DE0003482F /* Keeping */,
@@ -973,6 +1017,7 @@
 				847AA8E31DE8B0D2007B3EF7 /* View+MASAdditions.m in Sources */,
 				847AA85E1DE8AC99007B3EF7 /* UINavigationController+ZFPlayerRotation.m in Sources */,
 				8E161B581DE590050070CA50 /* UIImageView+HighlightedWebCache.m in Sources */,
+				8E389ABA1DF16E4D006C4CBF /* TableViewCCell.m in Sources */,
 				847AA8BC1DE8AF9E007B3EF7 /* ASIS3BucketObject.m in Sources */,
 				8E4DD5CE1DE56F2100441C04 /* main.m in Sources */,
 				847AA85B1DE8AC99007B3EF7 /* ASValuePopUpView.m in Sources */,
@@ -1063,8 +1108,11 @@
 				847AA8DD1DE8B0D2007B3EF7 /* MASConstraintMaker.m in Sources */,
 				847AA8B51DE8AF9E007B3EF7 /* ASICloudFilesContainer.m in Sources */,
 				847AA8EB1DE8B18B007B3EF7 /* Reachability.m in Sources */,
+				8E389AB41DF10C0F006C4CBF /* HomeViewController.m in Sources */,
+				8E389ABD1DF17D21006C4CBF /* CCellHeadView.m in Sources */,
 				847AA8B11DE8AF9E007B3EF7 /* ASIInputStream.m in Sources */,
 				8E389A6F1DEE790E006C4CBF /* UIView+SDExtension.m in Sources */,
+				8E389AB71DF120D3006C4CBF /* CHCollectionCell.m in Sources */,
 				8E161B151DE588AF0070CA50 /* RequestTool.m in Sources */,
 				8E7FF92F1DE7DC300003482F /* RecommendModel.m in Sources */,
 				8E389A6C1DEE790E006C4CBF /* TAPageControl.m in Sources */,

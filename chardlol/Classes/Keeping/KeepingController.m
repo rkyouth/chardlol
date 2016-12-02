@@ -33,8 +33,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.navigationItem.rightBarButtonItem = [self settingsBarButtonItem];
-    
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.refreshControl;
     self.automaticallyAdjustsScrollViewInsets = NO;
@@ -135,13 +133,6 @@
     return _dataSource;
 }
 
-- (UIBarButtonItem *)settingsBarButtonItem {
-    return [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"]
-                                            style:UIBarButtonItemStylePlain
-                                           target:self
-                                           action:@selector(didTapSettingsButton:)];
-}
-
 - (UIRefreshControl *)refreshControl
 {
     if (!_refreshControl) {
@@ -161,14 +152,6 @@
 }
 
 #pragma mark - ui_response
-- (void)didTapSettingsButton:(UIBarButtonItem *)item
-{
-    NSLog(@"...");
-    
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[SettingController alloc] init]];
-    [self.navigationController presentViewController:nav animated:YES completion:nil];
-}
-
 - (void)refreshAction
 {
     [self loadData];

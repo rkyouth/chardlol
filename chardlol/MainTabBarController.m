@@ -16,6 +16,7 @@
 #import "CHWebViewController.h"
 #import "RequestTool.h"
 #import "ZFDownloadViewController.h"
+#import "HomeViewController.h"
 
 @interface MainTabBarController ()
 
@@ -27,7 +28,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    NSArray *titles = @[@"推 荐",@"分 类",@"攻 略"];
+    NSArray *titles = @[@"推 荐",@"攻 略",@"设 置"];
     
     for (int i = 0; i < titles.count; i ++) {
         NSString *title = titles[i];
@@ -40,15 +41,16 @@
     UIViewController *vc = nil;
     switch (index) {
         case 0:{
-            vc = [[RecommendController alloc] init];
+            vc = [[HomeViewController alloc] init];
             vc.tabBarItem.image = [UIImage imageNamed:@"tabbar_recommend"];
             vc.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_recommend_selected"];
         }
             break;
         case 1:{
-            vc = [[CategoryController alloc] init];
-            vc.tabBarItem.image = [UIImage imageNamed:@"tabbar_find"];
-            vc.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_find_selected"];
+            vc = [[KeepingController alloc] init];
+            vc.tabBarItem.image = [UIImage imageNamed:@"tabbar_collect"];
+            vc.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_collect_selected"];
+            
         }
             break;
         case 2:{
@@ -58,16 +60,19 @@
 //            nav_down.buttonText = @[@"收藏", @"下载"];
 //            nav_down.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemDownloads tag:index];
 //            vc = nav_down;
-            vc = [[KeepingController alloc] init];
-            vc.tabBarItem.image = [UIImage imageNamed:@"tabbar_collect"];
-            vc.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_collect_selected"];
+//            vc = [[CategoryController alloc] init];
+//            vc.tabBarItem.image = [UIImage imageNamed:@"tabbar_find"];
+//            vc.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_find_selected"];
+            vc = [[SettingController alloc] init];
+            vc.tabBarItem.image = [UIImage imageNamed:@"tabbar_find"];
+            vc.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_find_selected"];
         }
             break;
             
         default:
             break;
     }
-    vc.view.backgroundColor = [UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1];
+//    vc.view.backgroundColor = [UIColor colorWithRed:170/255.0 green:170/255.0 blue:170/255.0 alpha:1];
     vc.title = title;
 //    self.tabBar.tintColor = [UIColor colorWithRed:216/255.0 green:30/255.0 blue:6/255.0 alpha:1];
     self.tabBar.tintColor = self.view.tintColor;
