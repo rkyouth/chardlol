@@ -15,6 +15,8 @@
 
 @property (nonatomic,weak) UILabel *titleLab;
 
+
+
 @end
 
 @implementation CHCollectionCell
@@ -23,6 +25,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
         UIImageView *imageView = [[UIImageView alloc] init];
         imageView.layer.cornerRadius = 3;
         imageView.clipsToBounds = YES;
@@ -34,6 +37,12 @@
         titleLab.font = [UIFont systemFontOfSize:12];
         [self.contentView addSubview:titleLab];
         self.titleLab = titleLab;
+        
+        UIView *highlightView = [[UIView alloc] init];
+        highlightView.hidden = YES;
+        highlightView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+        [self.contentView addSubview:highlightView];
+        self.highlightView = highlightView;
     }
     return self;
 }
@@ -48,6 +57,8 @@
     CGFloat titleY = CGRectGetMaxY(self.imageView.frame) + 5;
     CGFloat titleW = self.contentView.frame.size.width - 20;
     self.titleLab.frame = CGRectMake(0, titleY, titleW, 30);
+    
+    self.highlightView.frame = self.imageView.bounds;
 }
 
 - (void)setModel:(RecommendModel *)model

@@ -14,6 +14,8 @@
 #import "CHCollectionCell.h"
 #import "RecommendModel.h"
 #import "CCellHeadView.h"
+#import "MoviePlayerViewController.h"
+#import "UIImageView+WebCache.h"
 
 @interface HomeViewController() <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 
@@ -189,7 +191,10 @@ static NSString *const ccellheadid = @"ccellheadid";
 {
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ccellId forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor orangeColor];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:cell.bounds];
+    [cell addSubview:imgView];
+    [imgView sd_setImageWithURL:[NSURL URLWithString:@"https://img3.doubanio.com/view/dale-online/dale_ad/public/c4c434f9b669142.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+//    cell.backgroundColor = [UIColor orangeColor];
     
     if (indexPath.section == 1) {
         TableViewCCell *ccell = [collectionView dequeueReusableCellWithReuseIdentifier:tableccellid forIndexPath:indexPath];
@@ -229,6 +234,25 @@ static NSString *const ccellheadid = @"ccellheadid";
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    RecommendModel *rec = self.dataSource[indexPath.item];
+    
+    MoviePlayerViewController *moviePlayer = [[MoviePlayerViewController alloc] init];
+    moviePlayer.videoURL = [NSURL URLWithString:rec.link];
+    moviePlayer.videoTitle = rec.title;
+    [moviePlayer setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:moviePlayer animated:YES];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CHCollectionCell *cell = (CHCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.highlightView.hidden = NO;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    CHCollectionCell *cell = (CHCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    cell.highlightView.hidden = YES;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

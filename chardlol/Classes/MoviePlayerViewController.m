@@ -25,24 +25,27 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "Masonry.h"
-#import "ZFDownloadManager.h"
+//#import <ZFDownload/ZFDownloadManager.h>
 #import "ZFPlayer.h"
-//#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "UINavigationController+FDFullscreenPopGesture.h"
+#import "UIImageView+WebCache.h"
 
 @interface MoviePlayerViewController () <ZFPlayerDelegate>
-@property (weak, nonatomic) IBOutlet ZFPlayerView *playerView;
+/** 播放器View的父视图*/
+@property (strong, nonatomic)  UIView *playerFatherView;
+@property (strong, nonatomic) ZFPlayerView *playerView;
 /** 离开页面时候是否在播放 */
 @property (nonatomic, assign) BOOL isPlaying;
 @property (nonatomic, strong) ZFPlayerModel *playerModel;
 @property (nonatomic, strong) UIView *bottomView;
+
+@property (nonatomic,strong) UIView *adView;
 @end
 
 @implementation MoviePlayerViewController
 
 - (void)dealloc
 {
-    // 这句必须写，否则影响释放
-    [self.playerView resetPlayer];
     NSLog(@"%@释放了",self.class);
 }
 
@@ -71,31 +74,31 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    // use Masonry
+    self.title = @"视频";
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.playerFatherView];
+    [self.view addSubview:self.adView];
     /*
-    UIView *topView = [[UIView alloc] init];
-    topView.backgroundColor = [UIColor blackColor];
-    [self.view addSubview:topView];
-    [topView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(self.view);
-        make.height.mas_offset(20);
-    }];
-    
-    self.playerView = [[ZFPlayerView alloc] init];
-    [self.view addSubview:self.playerView];
-    [self.playerView mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.playerFatherView = [[UIView alloc] init];
+    [self.view addSubview:self.playerFatherView];
+    [self.playerFatherView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(20);
         make.leading.trailing.mas_equalTo(0);
-        // 这里宽高比16：9
-        make.height.mas_equalTo(self.playerView.mas_width).multipliedBy(9.0f/16.0f);
+        // 这里宽高比16：9,可自定义宽高比
+        make.height.mas_equalTo(self.playerFatherView.mas_width).multipliedBy(9.0f/16.0f);
     }];
     */
-    // 指定控制层(可自定义)
-    ZFPlayerControlView *controlView = [[ZFPlayerControlView alloc] init];
+    self.playerView = [[ZFPlayerView alloc] init];
     
-    // 设置控制层和播放模型
+    /*****************************************************************************************
+     *   // 指定控制层(可自定义)
+        ZFPlayerControlView *controlView = [[ZFPlayerControlView alloc] init];
+     *   // 设置控制层和播放模型
+     *   // 控制层传nil，默认使用ZFPlayerControlView(如自定义可传自定义的控制层)
+    ******************************************************************************************/
+    ZFPlayerControlView *controlView = [[ZFPlayerControlView alloc] init];
     [self.playerView playerControlView:controlView playerModel:self.playerModel];
+    
     // 设置代理
     self.playerView.delegate = self;
     
@@ -103,22 +106,19 @@
     // self.playerView.playerLayerGravity = ZFPlayerLayerGravityResizeAspect;
     
     // 打开下载功能（默认没有这个功能）
-    self.playerView.hasDownload    = YES;
+    self.playerView.hasDownload    = NO;
     // 打开预览图
     self.playerView.hasPreviewView = YES;
     
     // 是否自动播放，默认不自动播放
     [self.playerView autoPlayTheVideo];
     
-    self.bottomView = [[UIView alloc] init];
-    self.bottomView.backgroundColor = [UIColor colorWithRed:229/255.0 green:70/255.0 blue:64/255.0 alpha:1.0];
-    [self.view addSubview:self.bottomView];
-    [self.bottomView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.playerView.mas_bottom).offset(0);
-        make.leading.trailing.mas_equalTo(0);
-        make.bottom.mas_equalTo(self.view).offset(-60);
-    }];
+}
 
+// 返回值要必须为NO
+- (BOOL)shouldAutorotate
+{
+    return NO;
 }
 
 #pragma mark - ZFPlayerDelegate
@@ -130,45 +130,11 @@
 
 - (void)zf_playerDownload:(NSString *)url
 {
-    // 此处是截取的下载地址，可以自己根据服务器的视频名称来赋值
-    NSString *name = [url lastPathComponent];
-    [[ZFDownloadManager sharedDownloadManager] downFileUrl:url filename:name fileimage:nil];
-    // 设置最多同时下载个数（默认是3）
-    [ZFDownloadManager sharedDownloadManager].maxCount = 4;
-}
-
-#pragma mark - 转屏相关
-
-// 是否支持自动转屏
-- (BOOL)shouldAutorotate
-{
-    // 调用ZFPlayerSingleton单例记录播放状态是否锁定屏幕方向
-    return !ZFPlayerShared.isLockScreen;
-}
-
-// 支持哪些转屏方向
-- (UIInterfaceOrientationMask)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskAllButUpsideDown;
-}
-
-// 默认的屏幕方向（当前ViewController必须是通过模态出来的UIViewController（模态带导航的无效）方式展现出来的，才会调用这个方法）
-- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
-{
-    return UIInterfaceOrientationPortrait;
-}
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
-        [self.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(self.view).offset(-60);
-        }];
-    } else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight || toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
-        [self.bottomView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.bottom.mas_equalTo(self.view).offset(0);
-        }];
-    }
+//    // 此处是截取的下载地址，可以自己根据服务器的视频名称来赋值
+//    NSString *name = [url lastPathComponent];
+//    [[ZFDownloadManager sharedDownloadManager] downFileUrl:url filename:name fileimage:nil];
+//    // 设置最多同时下载个数（默认是3）
+//    [ZFDownloadManager sharedDownloadManager].maxCount = 4;
 }
 
 #pragma mark - Getter
@@ -177,25 +143,39 @@
 {
     if (!_playerModel) {
         _playerModel                  = [[ZFPlayerModel alloc] init];
-        _playerModel.title            = @"这里设置视频标题";
+        _playerModel.title            = self.videoTitle;
         _playerModel.videoURL         = self.videoURL;
         _playerModel.placeholderImage = [UIImage imageNamed:@"loading_bgView1"];
+        _playerModel.fatherView       = self.playerFatherView;
+
     }
     return _playerModel;
 }
 
-#pragma mark - Action
-
-- (IBAction)playNewVideo:(UIButton *)sender {
-    self.playerModel.title            = @"这是新播放的视频";
-    self.playerModel.videoURL         = [NSURL URLWithString:@"http://baobab.wdjcdn.com/1456665467509qingshu.mp4"];
-    // 设置网络封面图
-    self.playerModel.placeholderImageURLString = @"http://img.wdjimg.com/image/video/447f973848167ee5e44b67c8d4df9839_0_0.jpeg";
-    // 从xx秒开始播放视频
-    // self.playerModel.seekTime         = 15;
-    [self.playerView resetToPlayNewVideo:self.playerModel];
+- (UIView *)playerFatherView
+{
+    if (!_playerFatherView) {
+        _playerFatherView = [[UIView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.width * 9 /16)];
+    }
+    return _playerFatherView;
 }
 
+- (UIView *)adView
+{
+    if (!_adView) {
+        
+        CGFloat Y = self.view.frame.size.height - 70;
+        _adView = [[UIView alloc] initWithFrame:CGRectMake(0, Y, self.view.frame.size.width, 70)];
+        _adView.backgroundColor = [UIColor orangeColor];
+        
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:_adView.bounds];
+        [_adView addSubview:imgView];
+        [imgView sd_setImageWithURL:[NSURL URLWithString:@"https://img3.doubanio.com/view/dale-online/dale_ad/public/c4c434f9b669142.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    }
+    return _adView;
+}
+
+#pragma mark - Action
 /*
 #pragma mark - Navigation
 

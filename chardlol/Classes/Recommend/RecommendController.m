@@ -250,12 +250,10 @@
         playerModel.indexPath        = weakIndexPath;
         // 赋值分辨率字典
 //        playerModel.resolutionDic    = dic;
-        // (需要设置imageView的tag值，此处设置的为101)
-        playerModel.cellImageViewTag = weakCell.imgView.tag;
         
         // 设置播放控制层和model
         [weakSelf.playerView playerControlView:weakSelf.controlView playerModel:playerModel];
-        [weakSelf.playerView addPlayerToCellImageView:weakCell.imgView];
+//        [weakSelf.playerView addPlayerToCellImageView:weakCell.imgView];
         // 下载功能
         weakSelf.playerView.hasDownload = NO;
         // 自动播放

@@ -13,4 +13,6 @@
 
 @property (nonatomic,strong) RecommendModel *model;
 
+@property (nonatomic,weak) UIView *highlightView;
+
 @end
