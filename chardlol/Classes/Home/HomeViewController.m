@@ -191,9 +191,12 @@ static NSString *const ccellheadid = @"ccellheadid";
 {
     
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ccellId forIndexPath:indexPath];
-    UIImageView *imgView = [[UIImageView alloc] initWithFrame:cell.bounds];
-    [cell addSubview:imgView];
-    [imgView sd_setImageWithURL:[NSURL URLWithString:@"https://img3.doubanio.com/view/dale-online/dale_ad/public/c4c434f9b669142.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+//    if (!cell) {
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:cell.bounds];
+        [cell addSubview:imgView];
+        [imgView sd_setImageWithURL:[NSURL URLWithString:@"http://r1.ykimg.com/material/0A03/201612/122/117648/1202-1300-100.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+//    }
+    
 //    cell.backgroundColor = [UIColor orangeColor];
     
     if (indexPath.section == 1) {
@@ -233,26 +236,34 @@ static NSString *const ccellheadid = @"ccellheadid";
 // 选中某item
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
-    RecommendModel *rec = self.dataSource[indexPath.item];
-    
-    MoviePlayerViewController *moviePlayer = [[MoviePlayerViewController alloc] init];
-    moviePlayer.videoURL = [NSURL URLWithString:rec.link];
-    moviePlayer.videoTitle = rec.title;
-    [moviePlayer setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:moviePlayer animated:YES];
+    if (indexPath.section == 2) {
+        [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+        RecommendModel *rec = self.dataSource[indexPath.item];
+        
+        MoviePlayerViewController *moviePlayer = [[MoviePlayerViewController alloc] init];
+        moviePlayer.videoURL = [NSURL URLWithString:rec.link];
+        moviePlayer.videoTitle = rec.title;
+        [moviePlayer setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:moviePlayer animated:YES];
+    }
+   
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CHCollectionCell *cell = (CHCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    cell.highlightView.hidden = NO;
+    if (indexPath.section == 2) {
+        CHCollectionCell *cell = (CHCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        cell.highlightView.hidden = NO;
+    }
+    
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    CHCollectionCell *cell = (CHCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    cell.highlightView.hidden = YES;
+    if (indexPath.section == 2) {
+        CHCollectionCell *cell = (CHCollectionCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        cell.highlightView.hidden = YES;
+    }
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

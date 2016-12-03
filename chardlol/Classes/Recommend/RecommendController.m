@@ -87,6 +87,7 @@
         self.total = [resData[@"total"] intValue];
         
         [self.dataSource removeAllObjects];
+        
         NSArray *videos = resData[@"videos"];
         for (NSDictionary *dic in videos) {
             RecommendModel *model = [RecommendModel recommendWithDic:dic];

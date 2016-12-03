@@ -50,6 +50,7 @@
     
     CGRect textRect = self.textLabel.frame;
     textRect.origin.x = CGRectGetMaxX(self.imageView.frame) + 20;
+    textRect.size.width = self.contentView.frame.size.width - textRect.origin.x - 10;
     self.textLabel.frame = textRect;
     
     CGRect detailRect = self.detailTextLabel.frame;

@@ -34,7 +34,7 @@
     // Do any additional setup after loading the view.
     
     [self.view addSubview:self.tableView];
-    self.tableView.tableHeaderView = self.refreshControl;
+    [self.tableView addSubview:self.refreshControl];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.indicatorView];
     [self.indicatorView startAnimating];
@@ -119,7 +119,7 @@
         _tableView.dataSource = self;
         _tableView.delegate = self;
         _tableView.backgroundColor = [UIColor colorWithRed:230/255.0 green:230/255.0 blue:230/255.0 alpha:1];
-//        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
+        _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
         _tableView.rowHeight = 80;
     }
     return _tableView;

@@ -23,6 +23,7 @@
 		841A61181DF1DFC80053717A /* ZFPlayerControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A61081DF1DFC80053717A /* ZFPlayerControlView.m */; };
 		841A61191DF1DFC80053717A /* ZFPlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A610B1DF1DFC80053717A /* ZFPlayerModel.m */; };
 		841A611A1DF1DFC80053717A /* ZFPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A610D1DF1DFC80053717A /* ZFPlayerView.m */; };
+		841A611D1DF2EC5A0053717A /* VideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A611C1DF2EC5A0053717A /* VideoModel.m */; };
 		847AA8391DE8885F007B3EF7 /* CHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AA8381DE8885F007B3EF7 /* CHWebViewController.m */; };
 		847AA8721DE8AEDB007B3EF7 /* ZFCommonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AA86A1DE8AEDB007B3EF7 /* ZFCommonHelper.m */; };
 		847AA8731DE8AEDB007B3EF7 /* ZFDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AA86D1DE8AEDB007B3EF7 /* ZFDownloadManager.m */; };
@@ -164,6 +165,8 @@
 		841A610B1DF1DFC80053717A /* ZFPlayerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerModel.m; sourceTree = "<group>"; };
 		841A610C1DF1DFC80053717A /* ZFPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFPlayerView.h; sourceTree = "<group>"; };
 		841A610D1DF1DFC80053717A /* ZFPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFPlayerView.m; sourceTree = "<group>"; };
+		841A611B1DF2EC5A0053717A /* VideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VideoModel.h; path = chardlol/Classes/Custom/VideoModel.h; sourceTree = SOURCE_ROOT; };
+		841A611C1DF2EC5A0053717A /* VideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VideoModel.m; path = chardlol/Classes/Custom/VideoModel.m; sourceTree = SOURCE_ROOT; };
 		847AA8371DE8885F007B3EF7 /* CHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWebViewController.h; sourceTree = "<group>"; };
 		847AA8381DE8885F007B3EF7 /* CHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebViewController.m; sourceTree = "<group>"; };
 		847AA8691DE8AEDB007B3EF7 /* ZFCommonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFCommonHelper.h; sourceTree = "<group>"; };
@@ -749,6 +752,8 @@
 		8E389AB01DF10BEF006C4CBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				841A611B1DF2EC5A0053717A /* VideoModel.h */,
+				841A611C1DF2EC5A0053717A /* VideoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1121,6 +1126,7 @@
 				847AA8DD1DE8B0D2007B3EF7 /* MASConstraintMaker.m in Sources */,
 				847AA8B51DE8AF9E007B3EF7 /* ASICloudFilesContainer.m in Sources */,
 				847AA8EB1DE8B18B007B3EF7 /* Reachability.m in Sources */,
+				841A611D1DF2EC5A0053717A /* VideoModel.m in Sources */,
 				841A61131DF1DFC80053717A /* UIView+CustomControlView.m in Sources */,
 				8E389AB41DF10C0F006C4CBF /* HomeViewController.m in Sources */,
 				8E389ABD1DF17D21006C4CBF /* CCellHeadView.m in Sources */,

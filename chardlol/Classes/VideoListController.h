@@ -8,6 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    CompereVList,
+    HeroVList,
+} ListType;
+
 @interface VideoListController : UIViewController
+
+@property (nonatomic,assign) ListType listType;
+
+@property (nonatomic,copy) NSString *userId;
 
 @end

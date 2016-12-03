@@ -11,6 +11,7 @@
 #import "CHCustomCell.h"
 #import "ComperesModel.h"
 #import "UIImageView+WebCache.h"
+#import "VideoListController.h"
 
 #define userslist @"89323481,99201492,25003662,86787875,91386394,76521919,86364302,346799477,431098561,340703547,14771885,369136383,57379868,111568632,455360660,87581910,70802174,141103004,94442014,67612492,45810217,340647717,344782203,155410757,136141036,134336394,148833979,97764116,146341241,90827101,19654343,138108211,65078683,104820044,110299062,98073387,128560709"
 
@@ -123,6 +124,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    ComperesModel *model = self.dataSource[indexPath.row];
+    VideoListController *list = [[VideoListController alloc] init];
+    list.userId = model.comId;
+    list.listType = CompereVList;
+    [self.navigationController pushViewController:list animated:YES];
 }
 
 @end
