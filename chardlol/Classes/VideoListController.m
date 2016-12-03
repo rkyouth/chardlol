@@ -11,7 +11,7 @@
 #import "RequestTool.h"
 #import "VideoModel.h"
 #import "UIImageView+WebCache.h"
-#import "MoviePlayerViewController.h"
+#import "CHPlayerTool.h"
 
 @interface VideoListController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 
@@ -174,11 +174,12 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     VideoModel *model = self.dataSource[indexPath.row];
-    MoviePlayerViewController *moviePlayer = [[MoviePlayerViewController alloc] init];
-    moviePlayer.videoURL = [NSURL URLWithString:model.link];
-    moviePlayer.videoTitle = model.title;
-    [moviePlayer setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:moviePlayer animated:YES];
+//    MoviePlayerViewController *moviePlayer = [[MoviePlayerViewController alloc] init];
+//    moviePlayer.videoURL = [NSURL URLWithString:model.link];
+//    moviePlayer.videoTitle = model.title;
+//    [moviePlayer setHidesBottomBarWhenPushed:YES];
+//    [self.navigationController pushViewController:moviePlayer animated:YES];
+    [CHPlayerTool playWithUrl:[NSURL URLWithString:model.link] atController:self];
 }
 
 #pragma mark - UIScrollViewDelegate

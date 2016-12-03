@@ -17,6 +17,9 @@
 
 @implementation AppDelegate
 
+static NSString * const VIDEO_CONTROLLER_CLASS_NAME_IOS7 = @"MPInlineVideoFullscreenViewController";
+static NSString * const VIDEO_CONTROLLER_CLASS_NAME_IOS8 = @"AVPlayerViewController";
+
 #pragma mark - private
 - (void)setMainTabBarViewController
 {

@@ -14,8 +14,8 @@
 #import "CHCollectionCell.h"
 #import "RecommendModel.h"
 #import "CCellHeadView.h"
-#import "MoviePlayerViewController.h"
 #import "UIImageView+WebCache.h"
+#import "CHPlayerTool.h"
 
 @interface HomeViewController() <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 
@@ -111,8 +111,8 @@ static NSString *const ccellheadid = @"ccellheadid";
     if (!_collectionView) {
         
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.minimumInteritemSpacing = cellgap;
-        layout.minimumLineSpacing = cellgap;
+//        layout.minimumInteritemSpacing = cellgap;
+//        layout.minimumLineSpacing = cellgap;
         
         _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor whiteColor];
@@ -194,7 +194,7 @@ static NSString *const ccellheadid = @"ccellheadid";
 //    if (!cell) {
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:cell.bounds];
         [cell addSubview:imgView];
-        [imgView sd_setImageWithURL:[NSURL URLWithString:@"http://r1.ykimg.com/material/0A03/201612/122/117648/1202-1300-100.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        [imgView sd_setImageWithURL:[NSURL URLWithString:@"https://img3.doubanio.com/view/dale-online/dale_ad/public/71546279c152953.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
 //    }
     
 //    cell.backgroundColor = [UIColor orangeColor];
@@ -240,11 +240,12 @@ static NSString *const ccellheadid = @"ccellheadid";
         [collectionView deselectItemAtIndexPath:indexPath animated:YES];
         RecommendModel *rec = self.dataSource[indexPath.item];
         
-        MoviePlayerViewController *moviePlayer = [[MoviePlayerViewController alloc] init];
-        moviePlayer.videoURL = [NSURL URLWithString:rec.link];
-        moviePlayer.videoTitle = rec.title;
-        [moviePlayer setHidesBottomBarWhenPushed:YES];
-        [self.navigationController pushViewController:moviePlayer animated:YES];
+//        MoviePlayerViewController *moviePlayer = [[MoviePlayerViewController alloc] init];
+//        moviePlayer.videoURL = [NSURL URLWithString:rec.link];
+//        moviePlayer.videoTitle = rec.title;
+//        [moviePlayer setHidesBottomBarWhenPushed:YES];
+//        [self.navigationController pushViewController:moviePlayer animated:YES];
+        [CHPlayerTool playWithUrl:[NSURL URLWithString:rec.link] atController:self];
     }
    
 }
@@ -279,7 +280,7 @@ static NSString *const ccellheadid = @"ccellheadid";
             UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)collectionViewLayout;
             layout.sectionInset = UIEdgeInsetsMake(0, cellgap, 0, cellgap);
             CGFloat W = (self.view.frame.size.width - cellgap * 3) * 0.5;
-            CGFloat H = W * 9 / 16 + 40;
+            CGFloat H = W * 9 / 16 + 50;
             return CGSizeMake(W, H);
             break;
         }

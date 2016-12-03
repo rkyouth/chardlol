@@ -15,7 +15,6 @@
 #import "AuthManager.h"
 #import "CHWebViewController.h"
 #import "RequestTool.h"
-#import "ZFDownloadViewController.h"
 #import "HomeViewController.h"
 
 @interface MainTabBarController ()
