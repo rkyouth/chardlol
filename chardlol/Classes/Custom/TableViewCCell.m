@@ -7,12 +7,15 @@
 //
 
 #import "TableViewCCell.h"
+#import "CCellHeadView.h"
 
 @interface TableViewCCell() <UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
 
 @property (nonatomic,strong) NSArray *dataSource;
+
+@property (nonatomic,weak) UIView *line;
 
 @end
 
@@ -22,7 +25,13 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
         [self.contentView addSubview:self.tableView];
+        
+        UIView *line = [[UIView alloc] init];
+        line.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+        [self.contentView addSubview:line];
+        self.line = line;
     }
     return self;
 }
@@ -83,7 +92,10 @@
 {
     [super layoutSubviews];
     
-    self.tableView.frame = self.bounds;
+    self.tableView.frame = self.contentView.bounds;
+    
+    CGFloat lineW = self.contentView.frame.size.width - cellgap;
+    self.line.frame = CGRectMake(cellgap, 0, lineW, 0.5);
 }
 
 @end

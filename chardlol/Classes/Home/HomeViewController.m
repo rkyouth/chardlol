@@ -16,6 +16,7 @@
 #import "CCellHeadView.h"
 #import "UIImageView+WebCache.h"
 #import "CHPlayerTool.h"
+#import "CHAdHeaderCell.h"
 
 @interface HomeViewController() <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 
@@ -37,6 +38,7 @@ static NSString *const cheaderId = @"collectioncellheader";
 static NSString *const tableccellid = @"tableccellid";
 static NSString *const chcellId = @"chcell";
 static NSString *const ccellheadid = @"ccellheadid";
+static NSString *const adcellid = @"adcellid";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -121,7 +123,7 @@ static NSString *const ccellheadid = @"ccellheadid";
         _collectionView.alwaysBounceVertical = YES;
         _collectionView.contentInset = UIEdgeInsetsMake(64, 0, self.tabBarController.tabBar.frame.size.height, 0);
         
-        [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:ccellId];
+        [_collectionView registerClass:[CHAdHeaderCell class] forCellWithReuseIdentifier:adcellid];
         [_collectionView registerClass:[CHCollectionCell class] forCellWithReuseIdentifier:chcellId];
         [_collectionView registerClass:[TableViewCCell class] forCellWithReuseIdentifier:tableccellid];
         [_collectionView registerClass:[CCellHeadView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:ccellheadid];
@@ -190,15 +192,8 @@ static NSString *const ccellheadid = @"ccellheadid";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ccellId forIndexPath:indexPath];
-//    if (!cell) {
-        UIImageView *imgView = [[UIImageView alloc] initWithFrame:cell.bounds];
-        [cell addSubview:imgView];
-        [imgView sd_setImageWithURL:[NSURL URLWithString:@"https://img3.doubanio.com/view/dale-online/dale_ad/public/71546279c152953.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
-//    }
-    
-//    cell.backgroundColor = [UIColor orangeColor];
-    
+    CHAdHeaderCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:adcellid forIndexPath:indexPath];
+
     if (indexPath.section == 1) {
         TableViewCCell *ccell = [collectionView dequeueReusableCellWithReuseIdentifier:tableccellid forIndexPath:indexPath];
         ccell.cCellClick = ^(NSInteger row){
@@ -239,12 +234,6 @@ static NSString *const ccellheadid = @"ccellheadid";
     if (indexPath.section == 2) {
         [collectionView deselectItemAtIndexPath:indexPath animated:YES];
         RecommendModel *rec = self.dataSource[indexPath.item];
-        
-//        MoviePlayerViewController *moviePlayer = [[MoviePlayerViewController alloc] init];
-//        moviePlayer.videoURL = [NSURL URLWithString:rec.link];
-//        moviePlayer.videoTitle = rec.title;
-//        [moviePlayer setHidesBottomBarWhenPushed:YES];
-//        [self.navigationController pushViewController:moviePlayer animated:YES];
         [CHPlayerTool playWithUrl:[NSURL URLWithString:rec.link] atController:self];
     }
    
@@ -271,7 +260,7 @@ static NSString *const ccellheadid = @"ccellheadid";
 {
     switch (indexPath.section) {
         case 0:
-            return CGSizeMake(self.view.frame.size.width, 70);
+            return CGSizeMake(self.view.frame.size.width, 80);
             break;
         case 1:
             return CGSizeMake(self.view.frame.size.width, 120);

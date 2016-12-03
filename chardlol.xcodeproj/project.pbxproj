@@ -13,6 +13,7 @@
 		841A61291DF366EE0053717A /* CRIButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A61241DF366EE0053717A /* CRIButtonItem.m */; };
 		841A612A1DF366EE0053717A /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A61261DF366EE0053717A /* UIActionSheet+Blocks.m */; };
 		841A612B1DF366EE0053717A /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A61281DF366EE0053717A /* UIAlertView+Blocks.m */; };
+		841A612E1DF385870053717A /* CHAdHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A612D1DF385870053717A /* CHAdHeaderCell.m */; };
 		847AA8391DE8885F007B3EF7 /* CHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AA8381DE8885F007B3EF7 /* CHWebViewController.m */; };
 		8E161B0C1DE588480070CA50 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E161B001DE588480070CA50 /* AFHTTPSessionManager.m */; };
 		8E161B0D1DE588480070CA50 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E161B031DE588480070CA50 /* AFNetworkReachabilityManager.m */; };
@@ -92,6 +93,8 @@
 		841A61261DF366EE0053717A /* UIActionSheet+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+Blocks.m"; sourceTree = "<group>"; };
 		841A61271DF366EE0053717A /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
 		841A61281DF366EE0053717A /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+		841A612C1DF385870053717A /* CHAdHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAdHeaderCell.h; sourceTree = "<group>"; };
+		841A612D1DF385870053717A /* CHAdHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAdHeaderCell.m; sourceTree = "<group>"; };
 		847AA8371DE8885F007B3EF7 /* CHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWebViewController.h; sourceTree = "<group>"; };
 		847AA8381DE8885F007B3EF7 /* CHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebViewController.m; sourceTree = "<group>"; };
 		8E161AFF1DE588480070CA50 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -418,6 +421,8 @@
 				8E389AB61DF120D3006C4CBF /* CHCollectionCell.m */,
 				8E389ABB1DF17D21006C4CBF /* CCellHeadView.h */,
 				8E389ABC1DF17D21006C4CBF /* CCellHeadView.m */,
+				841A612C1DF385870053717A /* CHAdHeaderCell.h */,
+				841A612D1DF385870053717A /* CHAdHeaderCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -716,6 +721,7 @@
 				8E389A6B1DEE790E006C4CBF /* TADotView.m in Sources */,
 				8E7FF9231DE7D2DE0003482F /* KeepingController.m in Sources */,
 				8E161B111DE588480070CA50 /* AFURLSessionManager.m in Sources */,
+				841A612E1DF385870053717A /* CHAdHeaderCell.m in Sources */,
 				8E161B491DE590050070CA50 /* MKAnnotationView+WebCache.m in Sources */,
 				8E161B511DE590050070CA50 /* SDWebImageDownloaderOperation.m in Sources */,
 				8E161B0C1DE588480070CA50 /* AFHTTPSessionManager.m in Sources */,
