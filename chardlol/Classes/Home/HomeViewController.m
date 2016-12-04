@@ -25,6 +25,7 @@
 
 @property (nonatomic,assign) int page;
 @property (nonatomic,assign) int total;
+@property (nonatomic,assign) BOOL isLoadMore;
 
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
 @property (nonatomic,strong) UIActivityIndicatorView *indicatorView;
@@ -102,7 +103,7 @@ static NSString *const adcellid = @"adcellid";
         }
         [self.collectionView reloadData];
         
-        
+        self.isLoadMore = NO;
         
     } Failed:^(NSError *error) {}];
 }
@@ -320,15 +321,17 @@ static NSString *const adcellid = @"adcellid";
     
     
     //当currentOffset与maximumOffset的值相等时，说明scrollview已经滑到底部了。也可以根据这两个值的差来让他做点其他的什么事情
-    if(currentOffset >= maximumOffset)
+    if((int)currentOffset == (int)maximumOffset && self.isLoadMore == NO)
     {
+        
+        NSLog(@"fuck");
         self.page ++;
         
         int page_forward = self.total / 10;
         if (self.page > page_forward + 1) {
             return;
         }
-        
+        self.isLoadMore = YES;
         [self loadMoreData];
     }
 }

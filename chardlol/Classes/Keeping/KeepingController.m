@@ -21,6 +21,7 @@
 
 @property (nonatomic,assign) int page;
 @property (nonatomic,assign) BOOL nextPage;
+@property (nonatomic,assign) BOOL isLoadMore;
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
 @property (nonatomic,strong) UIActivityIndicatorView *indicatorView;
 
@@ -105,6 +106,8 @@
             [self.dataSource addObject:strategy];
         }
         [self.tableView reloadData];
+        
+        self.isLoadMore = NO;
         
     } Failed:^(NSError *error) {
         
@@ -204,9 +207,10 @@
     
     
     //当currentOffset与maximumOffset的值相等时，说明scrollview已经滑到底部了。
-    if(currentOffset == maximumOffset)
+    if((int)currentOffset == (int)maximumOffset && self.isLoadMore == NO)
     {
         if (self.nextPage) {
+            self.isLoadMore = YES;
             self.page ++;
             [self loadMoreData];
         }

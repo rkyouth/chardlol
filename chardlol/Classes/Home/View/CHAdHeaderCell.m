@@ -25,7 +25,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         UIImageView *adView = [[UIImageView alloc] init];
-        [adView sd_setImageWithURL:[NSURL URLWithString:@"https://img3.doubanio.com/view/dale-online/dale_ad/public/94329b1ad3bf566.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        [adView sd_setImageWithURL:[NSURL URLWithString:@"https://img3.doubanio.com/view/dale-online/dale_ad/public/aee89a30e70ede8.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
         [self.contentView addSubview:adView];
         self.adView = adView;
         

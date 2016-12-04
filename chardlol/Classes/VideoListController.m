@@ -21,6 +21,7 @@
 @property (nonatomic,assign) int page;
 @property (nonatomic,assign) BOOL nextPage;
 @property (nonatomic,assign) int total;
+@property (nonatomic,assign) BOOL isLoadMore;
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
 @property (nonatomic,strong) UIActivityIndicatorView *indicatorView;
 
@@ -80,6 +81,8 @@
         
         [self.refreshControl endRefreshing];
         [self.indicatorView stopAnimating];
+        
+        self.isLoadMore = NO;
         
     } Failed:^(NSError *error) {
         [self.refreshControl endRefreshing];
@@ -194,7 +197,7 @@
     
     
     //当currentOffset与maximumOffset的值相等时，说明scrollview已经滑到底部了。
-    if(currentOffset >= maximumOffset)
+    if((int)currentOffset == (int)maximumOffset && self.isLoadMore == NO)
     {
             self.page ++;
             
@@ -202,7 +205,8 @@
             if (self.page > page_forward + 1) {
                 return;
             }
-            
+        
+        self.isLoadMore = YES;
             switch (self.listType) {
                 case CompereVList:
                     [self loadCompereData];
