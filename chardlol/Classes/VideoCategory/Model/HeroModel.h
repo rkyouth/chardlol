@@ -12,6 +12,8 @@
 
 @property (nonatomic,copy) NSString *name;
 
+@property (nonatomic,copy) NSString *nickName;
+
 @property (nonatomic,copy) NSString *avatar;
 
 @property (nonatomic,copy) NSString *en_name;

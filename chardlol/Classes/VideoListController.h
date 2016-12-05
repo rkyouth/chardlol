@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HeroModel.h"
 
 typedef enum : NSUInteger {
     CompereVList,
@@ -18,5 +19,7 @@ typedef enum : NSUInteger {
 @property (nonatomic,assign) ListType listType;
 
 @property (nonatomic,copy) NSString *userId;
+
+@property (nonatomic,strong) HeroModel *hero;
 
 @end

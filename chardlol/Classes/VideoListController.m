@@ -93,6 +93,37 @@
 - (void)loadHeroData
 {
     
+    NSDictionary *params = @{@"client_id":yk_clientid,
+                             @"keyword":[NSString stringWithFormat:@"%@,%@",self.hero.name,self.hero.nickName],
+                             @"period":@"history",
+                             @"orderby":@"published",
+                             @"category":@"游戏",
+                             @"streamtypes":@"1,2,3,4,5,6",
+                             @"page":[NSString stringWithFormat:@"%d",self.page],
+                             @"count":@"8"};
+    [RequestTool GET:yk_videosearch Parameters:params Successed:^(NSDictionary *resData) {
+        
+        self.total = [resData[@"total"] intValue];
+        
+        if (self.page == 1) {
+            [self.dataSource removeAllObjects];
+        }
+        
+        for (NSDictionary *dic in resData[@"videos"]) {
+            VideoModel *vd = [VideoModel videoWithDic:dic];
+            [self.dataSource addObject:vd];
+        }
+        [self.tableView reloadData];
+        
+        [self.refreshControl endRefreshing];
+        [self.indicatorView stopAnimating];
+        
+        self.isLoadMore = NO;
+        
+    } Failed:^(NSError *error) {
+        [self.refreshControl endRefreshing];
+        [self.indicatorView stopAnimating];
+    }];
 }
 
 #pragma mark - ui_response

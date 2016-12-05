@@ -31,6 +31,7 @@
 #define strategy_list @"http://qt.qq.com/php_cgi/news/php/varcache_getnews.php"
 #define newsUrlPath   @"http://qt.qq.com/static/pages/news/phone/"
 #define yk_uservideos @"https://openapi.youku.com/v2/videos/by_user.json"
+#define yk_videosearch @"https://openapi.youku.com/v2/searches/video/by_keyword.json"
 
 
 @interface RequestTool : NSObject

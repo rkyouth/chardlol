@@ -17,6 +17,7 @@
     model.name = dic[@"name"];
     model.en_name = dic[@"en_name"];
     model.avatar = [NSString stringWithFormat:@"%@%@.png",hero_icon,model.en_name];
+    model.nickName = dic[@"nick"];
     
     return model;
 }
