@@ -12,6 +12,7 @@
 #import "HeroModel.h"
 #import "CHCustomCell.h"
 #import "VideoListController.h"
+#import <UMMobClick/MobClick.h>
 
 @interface HeroesController () <UITableViewDataSource,UITableViewDelegate,UISearchResultsUpdating>
 
@@ -42,6 +43,17 @@
     [self.indicatorView startAnimating];
     
     [self loadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"HeroPage"];//("PageOne"为页面名称，可自定义)
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"HeroPage"];
 }
 
 - (void)viewWillLayoutSubviews

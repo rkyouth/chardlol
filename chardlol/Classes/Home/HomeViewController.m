@@ -17,6 +17,7 @@
 #import "UIImageView+WebCache.h"
 #import "CHPlayerTool.h"
 #import "CHAdHeaderCell.h"
+#import <UMMobClick/MobClick.h>
 
 @interface HomeViewController() <UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate>
 
@@ -53,6 +54,17 @@ static NSString *const adcellid = @"adcellid";
     [self.collectionView addSubview:self.refreshControl];
     
     [self loadData];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"HomeController"];//("PageOne"为页面名称，可自定义)
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"HomeController"];
 }
 
 - (void)loadData
@@ -236,6 +248,7 @@ static NSString *const adcellid = @"adcellid";
         [collectionView deselectItemAtIndexPath:indexPath animated:YES];
         RecommendModel *rec = self.dataSource[indexPath.item];
         [CHPlayerTool playWithUrl:[NSURL URLWithString:rec.link] atController:self];
+        [MobClick event:@"RecommendVideoPlay"];
     }
    
 }

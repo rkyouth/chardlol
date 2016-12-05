@@ -12,6 +12,7 @@
 #import "VideoModel.h"
 #import "UIImageView+WebCache.h"
 #import "CHPlayerTool.h"
+#import <UMMobClick/MobClick.h>
 
 @interface VideoListController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 
@@ -51,6 +52,17 @@
     }
     
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"VideoListPage"];//("PageOne"为页面名称，可自定义)
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"VideoListPage"];
 }
 
 - (void)viewWillLayoutSubviews
@@ -208,12 +220,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     VideoModel *model = self.dataSource[indexPath.row];
-//    MoviePlayerViewController *moviePlayer = [[MoviePlayerViewController alloc] init];
-//    moviePlayer.videoURL = [NSURL URLWithString:model.link];
-//    moviePlayer.videoTitle = model.title;
-//    [moviePlayer setHidesBottomBarWhenPushed:YES];
-//    [self.navigationController pushViewController:moviePlayer animated:YES];
     [CHPlayerTool playWithUrl:[NSURL URLWithString:model.link] atController:self];
+    [MobClick event:@"videoListClick"];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -225,7 +233,6 @@
     UIEdgeInsets inset = scrollView.contentInset;
     CGFloat currentOffset = offset.y + bounds.size.height - inset.bottom;
     CGFloat maximumOffset = size.height;
-    
     
     //当currentOffset与maximumOffset的值相等时，说明scrollview已经滑到底部了。
     if((int)currentOffset == (int)maximumOffset && self.isLoadMore == NO)

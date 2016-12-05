@@ -14,6 +14,8 @@
 		841A612A1DF366EE0053717A /* UIActionSheet+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A61261DF366EE0053717A /* UIActionSheet+Blocks.m */; };
 		841A612B1DF366EE0053717A /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A61281DF366EE0053717A /* UIAlertView+Blocks.m */; };
 		841A612E1DF385870053717A /* CHAdHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A612D1DF385870053717A /* CHAdHeaderCell.m */; };
+		841A61301DF5A8710053717A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841A612F1DF5A8710053717A /* CoreTelephony.framework */; };
+		841A61321DF5A8980053717A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 841A61311DF5A8980053717A /* libsqlite3.tbd */; };
 		847AA8391DE8885F007B3EF7 /* CHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AA8381DE8885F007B3EF7 /* CHWebViewController.m */; };
 		8E161B0C1DE588480070CA50 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E161B001DE588480070CA50 /* AFHTTPSessionManager.m */; };
 		8E161B0D1DE588480070CA50 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E161B031DE588480070CA50 /* AFNetworkReachabilityManager.m */; };
@@ -96,6 +98,8 @@
 		841A61281DF366EE0053717A /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
 		841A612C1DF385870053717A /* CHAdHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHAdHeaderCell.h; sourceTree = "<group>"; };
 		841A612D1DF385870053717A /* CHAdHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAdHeaderCell.m; sourceTree = "<group>"; };
+		841A612F1DF5A8710053717A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		841A61311DF5A8980053717A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		847AA8371DE8885F007B3EF7 /* CHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWebViewController.h; sourceTree = "<group>"; };
 		847AA8381DE8885F007B3EF7 /* CHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebViewController.m; sourceTree = "<group>"; };
 		8E161AFF1DE588480070CA50 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -230,6 +234,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				841A61321DF5A8980053717A /* libsqlite3.tbd in Frameworks */,
+				841A61301DF5A8710053717A /* CoreTelephony.framework in Frameworks */,
 				8E389ABF1DF514C4006C4CBF /* UMMobClick.framework in Frameworks */,
 				8E161B7B1DE5A68F0070CA50 /* libz.tbd in Frameworks */,
 			);
@@ -354,6 +360,8 @@
 		8E161B711DE5A5EB0070CA50 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				841A61311DF5A8980053717A /* libsqlite3.tbd */,
+				841A612F1DF5A8710053717A /* CoreTelephony.framework */,
 				8E161B7A1DE5A68F0070CA50 /* libz.tbd */,
 			);
 			name = Frameworks;

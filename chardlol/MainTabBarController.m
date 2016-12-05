@@ -16,6 +16,7 @@
 #import "CHWebViewController.h"
 #import "RequestTool.h"
 #import "HomeViewController.h"
+#import <UMMobClick/MobClick.h>
 
 @interface MainTabBarController ()
 
@@ -33,6 +34,17 @@
         NSString *title = titles[i];
         [self addChildViewControllerWithTitle:title Index:i];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"TabbarController"];//("PageOne"为页面名称，可自定义)
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"TabbarController"];
 }
 
 - (void)addChildViewControllerWithTitle:(NSString *)title Index:(int)index

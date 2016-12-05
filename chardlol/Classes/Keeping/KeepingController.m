@@ -13,6 +13,7 @@
 #import "StrategyModel.h"
 #import "UIImageView+WebCache.h"
 #import "CHWebViewController.h"
+#import <UMMobClick/MobClick.h>
 
 @interface KeepingController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 
@@ -42,6 +43,17 @@
     
     [self loadData];
 
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"KeepController"];//("PageOne"为页面名称，可自定义)
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"KeepController"];
 }
 
 - (void)viewWillLayoutSubviews

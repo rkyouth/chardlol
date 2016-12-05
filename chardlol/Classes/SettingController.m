@@ -8,6 +8,7 @@
 
 #import "SettingController.h"
 #import <Social/Social.h>
+#import <UMMobClick/MobClick.h>
 
 @interface SettingController () <UITableViewDataSource,UITableViewDelegate>
 
@@ -25,6 +26,17 @@
     self.title = @"设置";
     
     [self.view addSubview:self.tableView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [MobClick beginLogPageView:@"SettingController"];//("PageOne"为页面名称，可自定义)
+}
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [MobClick endLogPageView:@"SettingController"];
 }
 
 #pragma mark - getter
@@ -88,16 +100,17 @@
     
     switch (indexPath.row) {
         case 0:
-            
+            [self goCommentApp];
+            [MobClick event:@"appCommentClick"];
             break;
         case 1:
             [self socielShare];
+            [MobClick event:@"socielShareClick"];
             break;
         default:
             break;
     }
 }
-
 
 #pragma mark - ui_response
 - (void)socielShare
@@ -111,6 +124,11 @@
                                      completion:^{
                                          // ...
      }];
+}
+
+- (void)goCommentApp
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@""]];
 }
 
 @end
