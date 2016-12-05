@@ -34,6 +34,8 @@ static NSString * const VIDEO_CONTROLLER_CLASS_NAME_IOS8 = @"AVPlayerViewControl
     
     [self setMainTabBarViewController];
     
+    
+    
     return YES;
 }
 

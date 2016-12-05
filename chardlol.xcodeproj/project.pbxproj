@@ -59,6 +59,7 @@
 		8E389AB71DF120D3006C4CBF /* CHCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389AB61DF120D3006C4CBF /* CHCollectionCell.m */; };
 		8E389ABA1DF16E4D006C4CBF /* TableViewCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389AB91DF16E4D006C4CBF /* TableViewCCell.m */; };
 		8E389ABD1DF17D21006C4CBF /* CCellHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E389ABC1DF17D21006C4CBF /* CCellHeadView.m */; };
+		8E389ABF1DF514C4006C4CBF /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E389ABE1DF514C4006C4CBF /* UMMobClick.framework */; };
 		8E4DD5CE1DE56F2100441C04 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4DD5CD1DE56F2100441C04 /* main.m */; };
 		8E4DD5D11DE56F2100441C04 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4DD5D01DE56F2100441C04 /* AppDelegate.m */; };
 		8E4DD5D91DE56F2100441C04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E4DD5D81DE56F2100441C04 /* Assets.xcassets */; };
@@ -186,6 +187,7 @@
 		8E389AB91DF16E4D006C4CBF /* TableViewCCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCCell.m; sourceTree = "<group>"; };
 		8E389ABB1DF17D21006C4CBF /* CCellHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCellHeadView.h; sourceTree = "<group>"; };
 		8E389ABC1DF17D21006C4CBF /* CCellHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCellHeadView.m; sourceTree = "<group>"; };
+		8E389ABE1DF514C4006C4CBF /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
 		8E4DD5C91DE56F2100441C04 /* chardlol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chardlol.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4DD5CD1DE56F2100441C04 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8E4DD5CF1DE56F2100441C04 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E389ABF1DF514C4006C4CBF /* UMMobClick.framework in Frameworks */,
 				8E161B7B1DE5A68F0070CA50 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -447,6 +450,7 @@
 		8E4DD5CB1DE56F2100441C04 /* chardlol */ = {
 			isa = PBXGroup;
 			children = (
+				8E389ABE1DF514C4006C4CBF /* UMMobClick.framework */,
 				8E7FF90B1DE7D2DE0003482F /* Classes */,
 				8E161B121DE588820070CA50 /* Tools */,
 				8E4DD5E31DE573FE00441C04 /* MainTabBarController.h */,

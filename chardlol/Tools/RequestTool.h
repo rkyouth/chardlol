@@ -33,6 +33,8 @@
 #define yk_uservideos @"https://openapi.youku.com/v2/videos/by_user.json"
 #define yk_videosearch @"https://openapi.youku.com/v2/searches/video/by_keyword.json"
 
+#define umeng_appkey @"5844ddbb1061d2040d000a64"
+
 
 @interface RequestTool : NSObject
 
