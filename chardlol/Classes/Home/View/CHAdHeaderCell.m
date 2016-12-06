@@ -16,6 +16,8 @@
 
 @property (nonatomic,weak) UIView *line;
 
+@property (nonatomic,weak) UILabel *choiceView;
+
 @end
 
 @implementation CHAdHeaderCell
@@ -25,7 +27,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         UIImageView *adView = [[UIImageView alloc] init];
-        [adView sd_setImageWithURL:[NSURL URLWithString:@"https://img3.doubanio.com/view/dale-online/dale_ad/public/aee89a30e70ede8.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        [adView sd_setImageWithURL:[NSURL URLWithString:@"http://ww1.sinaimg.cn/mw690/005GC2Nwgw1fagu6l4qbwj312c06owgh.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        adView.layer.cornerRadius = 3.0;
+        adView.clipsToBounds = YES;
+        adView.userInteractionEnabled = YES;
+        [adView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAd:)]];
         [self.contentView addSubview:adView];
         self.adView = adView;
         
@@ -33,8 +39,22 @@
 ////        line.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
 //        [self.contentView addSubview:line];
 //        self.line = line;
+        
+        UILabel *choiceView = [[UILabel alloc] init];
+        choiceView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
+        choiceView.textColor = [UIColor whiteColor];
+        choiceView.text = @"广告";
+        choiceView.font = [UIFont systemFontOfSize:12];
+        choiceView.textAlignment = NSTextAlignmentCenter;
+        [self.adView addSubview:choiceView];
+        self.choiceView = choiceView;
     }
     return self;
+}
+
+- (void)tapAd:(UITapGestureRecognizer *)ges
+{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.jennixlove.com"]];
 }
 
 - (void)layoutSubviews
@@ -46,6 +66,10 @@
     
 //    CGFloat lineY = CGRectGetMaxY(self.adView.frame) + cellgap;
 //    self.line.frame = CGRectMake(cellgap, lineY, adW, 0.5);
+    
+    CGFloat choiceX = self.adView.frame.size.width - 30;
+    CGFloat choiceY = self.adView.frame.size.height - 18;
+    self.choiceView.frame = CGRectMake(choiceX, choiceY, 30, 20);
 }
 
 @end
