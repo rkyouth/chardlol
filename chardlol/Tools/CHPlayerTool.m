@@ -20,11 +20,23 @@
         if (status == AFNetworkReachabilityStatusReachableViaWiFi) {
             [weakSelf setPlayerWithUrl:url Controller:controller];
         }else{
+            
+            AVPlayerViewController *playerVc = nil;
+            if (controller.presentedViewController && [controller.presentedViewController isKindOfClass:[AVPlayerViewController class]]) {
+                AVPlayerViewController *av = (AVPlayerViewController *)controller.presentedViewController;
+                [av.player pause];
+                playerVc = av;
+            }
+            
             NSString *tip = @"您正在使用非Wi-Fi环境\n播放将产生流量费用";
             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:tip delegate:weakSelf cancelButtonTitle:@"取消" otherButtonTitles:@"确定播放", nil];
             [alertView show:^(NSUInteger buttonIndex) {
                 if (buttonIndex == 1) {
                     [weakSelf setPlayerWithUrl:url Controller:controller];
+                }else{
+                    if (playerVc) {
+                        [playerVc dismissViewControllerAnimated:YES completion:nil];
+                    }
                 }
             }];
         }
@@ -34,6 +46,10 @@
 
 + (void)setPlayerWithUrl:(NSURL *)url Controller:(UIViewController *)controller
 {
+    if (controller.presentedViewController && [controller.presentedViewController isKindOfClass:[AVPlayerViewController class]]) {
+        AVPlayerViewController *av = (AVPlayerViewController *)controller.presentedViewController;
+        [av.player play];
+    }
     //初始化
     AVPlayerViewController  *playerVc = [[AVPlayerViewController alloc]init];
     

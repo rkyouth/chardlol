@@ -867,8 +867,13 @@
 				INFOPLIST_FILE = chardlol/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/chardlol/ThirdLib/WeixinActivity/Resources",
+					"$(PROJECT_DIR)/chardlol/ThirdLib/WeixinActivity/Resources/OpenSDK1.7.5",
+				);
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chard.chardlol;
+				PRODUCT_BUNDLE_IDENTIFIER = chardlol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};
@@ -888,8 +893,13 @@
 				INFOPLIST_FILE = chardlol/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/chardlol/ThirdLib/WeixinActivity/Resources",
+					"$(PROJECT_DIR)/chardlol/ThirdLib/WeixinActivity/Resources/OpenSDK1.7.5",
+				);
 				OTHER_LDFLAGS = "-lxml2";
-				PRODUCT_BUNDLE_IDENTIFIER = com.chard.chardlol;
+				PRODUCT_BUNDLE_IDENTIFIER = chardlol;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				USER_HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 			};

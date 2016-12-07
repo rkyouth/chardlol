@@ -27,7 +27,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         UIImageView *adView = [[UIImageView alloc] init];
-        [adView sd_setImageWithURL:[NSURL URLWithString:@"http://ww1.sinaimg.cn/mw690/005GC2Nwgw1fagu6l4qbwj312c06owgh.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        [adView sd_setImageWithURL:[NSURL URLWithString:@"http://ww4.sinaimg.cn/mw690/005GC2Nwgw1fai7vd8m09j312c06otao.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
         adView.layer.cornerRadius = 3.0;
         adView.clipsToBounds = YES;
         adView.userInteractionEnabled = YES;
