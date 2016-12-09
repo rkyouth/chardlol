@@ -857,6 +857,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = XS4GBKTG77;
 				FRAMEWORK_SEARCH_PATHS = (
 					/usr/lib/libxml2.tbd,
@@ -883,6 +884,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = XS4GBKTG77;
 				FRAMEWORK_SEARCH_PATHS = (
 					/usr/lib/libxml2.tbd,
