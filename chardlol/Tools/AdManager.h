@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface AdManager : NSObject
+
++ (AdManager *)sharedManager;
+
++ (void)setNormalAdWithSuperView:(UIView *)superView;
 
 @end

@@ -14,8 +14,10 @@
 #import "UIImageView+WebCache.h"
 #import "CHWebViewController.h"
 #import <UMMobClick/MobClick.h>
+#import "AdManager.h"
+#import "GDTMobBannerView.h"
 
-@interface KeepingController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
+@interface KeepingController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,GDTMobBannerViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *dataSource;
@@ -26,6 +28,8 @@
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
 @property (nonatomic,strong) UIActivityIndicatorView *indicatorView;
 
+@property (nonatomic,strong) UIView *adView;
+@property (nonatomic,strong) GDTMobBannerView *bannerAd;
 
 @end
 
@@ -40,6 +44,8 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.indicatorView];
     [self.indicatorView startAnimating];
+    
+    self.tableView.tableHeaderView = self.adView;
     
     [self loadData];
 
@@ -166,6 +172,38 @@
     return _indicatorView;
 }
 
+- (GDTMobBannerView *)bannerAd
+{
+    if (!_bannerAd) {
+        NSString *appkey = @"1105344611";
+        NSString *posId = @"4090812164690039";
+        
+        _bannerAd = [[GDTMobBannerView alloc]
+                     initWithFrame:self.adView.bounds
+                     appkey:appkey
+                     placementId:posId];
+        
+        _bannerAd.delegate = self;
+        _bannerAd.currentViewController = [[UIApplication sharedApplication] keyWindow].rootViewController;
+        _bannerAd.isAnimationOn = YES;
+        _bannerAd.showCloseBtn = NO;
+        _bannerAd.isGpsOn = YES;
+        [_bannerAd loadAdAndShow];
+    }
+    return _bannerAd;
+}
+
+- (UIView *)adView
+{
+    if (!_adView) {
+        CGFloat W = self.view.frame.size.width;
+        _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, W, W * 50 / 320)];
+        //        _adView.backgroundColor = [UIColor orangeColor];
+        [_adView addSubview:self.bannerAd];
+    }
+    return _adView;
+}
+
 #pragma mark - ui_response
 - (void)refreshAction
 {
@@ -227,6 +265,12 @@
             [self loadMoreData];
         }
     }
+}
+
+#pragma mark - GDTMobBannerViewDelegate
+- (void)bannerViewFailToReceived:(NSError *)error
+{
+    [AdManager setNormalAdWithSuperView:self.adView];
 }
 
 @end

@@ -11,11 +11,19 @@
 #import <UMMobClick/MobClick.h>
 #import "RequestTool.h"
 #import <MessageUI/MessageUI.h>
+#import "UIAlertView+Blocks.h"
+#import "ShareManager.h"
+#import "SDImageCache.h"
+#import "AdManager.h"
+#import "GDTMobBannerView.h"
 
-@interface SettingController () <UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate>
+@interface SettingController () <UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate,GDTMobBannerViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSArray *dataSource;
+
+@property (nonatomic,strong) UIView *adView;
+@property (nonatomic,strong) GDTMobBannerView *bannerAd;
 
 @end
 
@@ -28,12 +36,15 @@
     self.title = @"设置";
     
     [self.view addSubview:self.tableView];
+    self.tableView.tableHeaderView = self.adView;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:@"SettingController"];//("PageOne"为页面名称，可自定义)
+    
+    [self.tableView reloadData];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -66,10 +77,43 @@
 {
     if (!_dataSource) {
         _dataSource = @[@[@"添加评论",
-                        @"分享App给好友"],
-                        @[@"反馈"]];
+                        @"分享App给好友",@"反馈"],
+                        @[@"清理缓存"]];
     }
     return _dataSource;
+}
+
+- (GDTMobBannerView *)bannerAd
+{
+    if (!_bannerAd) {
+        NSString *appkey = @"1105344611";
+        NSString *posId = @"4090812164690039";
+        
+        CGFloat adW = self.adView.frame.size.width - 20;
+        _bannerAd = [[GDTMobBannerView alloc]
+                     initWithFrame:CGRectMake(10,10,adW,adW * 50 / 320)
+                     appkey:appkey
+                     placementId:posId];
+        
+        _bannerAd.delegate = self;
+        _bannerAd.currentViewController = [[UIApplication sharedApplication] keyWindow].rootViewController;
+        _bannerAd.isAnimationOn = YES;
+        _bannerAd.showCloseBtn = NO;
+        _bannerAd.isGpsOn = YES;
+        [_bannerAd loadAdAndShow];
+    }
+    return _bannerAd;
+}
+
+- (UIView *)adView
+{
+    if (!_adView) {
+        CGFloat W = self.view.frame.size.width;
+        _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, W, ((W - 20) * 50 / 320) + 20)];
+//        _adView.backgroundColor = [UIColor orangeColor];
+        [_adView addSubview:self.bannerAd];
+    }
+    return _adView;
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate
@@ -92,7 +136,14 @@
     }
   
     cell.textLabel.text = self.dataSource[indexPath.section][indexPath.row];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    if (indexPath.section == 1 && indexPath.row == 0) {
+        UILabel *lab = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+        lab.textAlignment = NSTextAlignmentRight;
+        lab.font = [UIFont systemFontOfSize:13];
+        lab.textColor = [UIColor lightGrayColor];
+        lab.text = [self getMemorySize];
+        cell.accessoryView = lab;
+    }
     
     return cell;
 }
@@ -111,13 +162,16 @@
                 [self socielShare];
                 [MobClick event:@"socielShareClick"];
                 break;
+            case 2:
+                [self punishApp];
+                break;
             default:
                 break;
         }
     }else if (indexPath.section == 1){
         switch (indexPath.row) {
             case 0:
-                [self punishApp];
+                [self clearMemory];
                 break;
             default:
                 break;
@@ -126,19 +180,25 @@
     
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (section) {
+        case 0:
+            return @"分享";
+            break;
+        case 1:
+            return @"其他";
+            break;
+        default:
+            return @"";
+            break;
+    }
+}
+
 #pragma mark - ui_response
 - (void)socielShare
 {
-    NSString *title = @"英雄联盟通";
-    UIImage *img = [UIImage imageNamed:@"60"];
-    NSURL *link = [NSURL URLWithString:share_link];
-    NSArray *items = @[link,title,img];
-    
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
-    activityVC.excludedActivityTypes = @[UIActivityTypeAirDrop];
-    
-    [self presentViewController:activityVC animated:YES completion:nil];
-
+    [ShareManager shareWithController:self Url:share_link];
 }
 
 - (void)goCommentApp
@@ -148,12 +208,41 @@
 
 - (void)punishApp
 {
-    MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
-    controller.mailComposeDelegate = self;
-    [controller setSubject:@"英雄联盟通 意见反馈"];
-    [controller setMessageBody:@"您好,您的反馈非常重要,我们会认真改进APP" isHTML:NO];
-    [controller setToRecipients:@[@"loltv@creativechard.cn"]];
-    [self presentViewController:controller animated:YES completion:nil];
+    BOOL canOpen = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"mailto://"]];
+    if (canOpen) {
+        MFMailComposeViewController *controller = [[MFMailComposeViewController alloc] init];
+        controller.mailComposeDelegate = self;
+        [controller setSubject:@"英雄联盟通 意见反馈"];
+        [controller setMessageBody:@"您好,您的反馈非常重要,我们会认真改进APP" isHTML:NO];
+        [controller setToRecipients:@[@"loltv@creativechard.cn"]];
+        [self presentViewController:controller animated:YES completion:nil];
+    }else{
+        NSString *tip = @"无法打开系统邮箱\n欢迎发送至loltv@creativechard.cn";
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:tip delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"复制邮箱", nil];
+        [alertView show:^(NSUInteger buttonIndex) {
+            if (buttonIndex == 1) {
+                UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+                pasteboard.string = @"loltv@creativechard.cn";
+            }else{
+                
+            }
+        }];
+    }
+    
+}
+
+- (NSString *)getMemorySize
+{
+    NSInteger cache = [[SDImageCache sharedImageCache] getSize];
+    return [NSString stringWithFormat:@"%.2f M",cache/1000.0/1000.0];
+}
+
+- (void)clearMemory
+{
+    [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+        [self.tableView reloadData];
+    }];
+    
 }
 
 #pragma mark - MFMailComposeViewControllerDelegate
@@ -162,6 +251,10 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
+#pragma mark - GDTMobBannerViewDelegate
+- (void)bannerViewFailToReceived:(NSError *)error
+{
+    [AdManager setNormalAdWithSuperView:self.adView];
+}
 
 @end

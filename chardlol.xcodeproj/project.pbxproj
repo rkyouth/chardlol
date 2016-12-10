@@ -16,6 +16,14 @@
 		841A612E1DF385870053717A /* CHAdHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A612D1DF385870053717A /* CHAdHeaderCell.m */; };
 		841A61301DF5A8710053717A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841A612F1DF5A8710053717A /* CoreTelephony.framework */; };
 		841A61321DF5A8980053717A /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 841A61311DF5A8980053717A /* libsqlite3.tbd */; };
+		841A61351DFBB2630053717A /* ShareManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 841A61341DFBB2630053717A /* ShareManager.m */; };
+		841A613D1DFBBD4D0053717A /* libGDTMobSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 841A613C1DFBBD4D0053717A /* libGDTMobSDK.a */; };
+		841A613F1DFBC0DB0053717A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841A613E1DFBC0DB0053717A /* AdSupport.framework */; };
+		841A61411DFBC10E0053717A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841A61401DFBC10E0053717A /* CoreLocation.framework */; };
+		841A61431DFBC1220053717A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841A61421DFBC1220053717A /* QuartzCore.framework */; };
+		841A61451DFBC12C0053717A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841A61441DFBC12C0053717A /* SystemConfiguration.framework */; };
+		841A61471DFBC1630053717A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841A61461DFBC1630053717A /* Security.framework */; };
+		841A61491DFBC1730053717A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841A61481DFBC1730053717A /* StoreKit.framework */; };
 		847AA8391DE8885F007B3EF7 /* CHWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847AA8381DE8885F007B3EF7 /* CHWebViewController.m */; };
 		8E161B0C1DE588480070CA50 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E161B001DE588480070CA50 /* AFHTTPSessionManager.m */; };
 		8E161B0D1DE588480070CA50 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E161B031DE588480070CA50 /* AFNetworkReachabilityManager.m */; };
@@ -79,7 +87,6 @@
 		8E7FF9351DE819FA0003482F /* EasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FF9321DE819FA0003482F /* EasePageViewController.m */; };
 		8E7FF9361DE819FA0003482F /* RKSwipeBetweenViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FF9341DE819FA0003482F /* RKSwipeBetweenViewControllers.m */; };
 		8E7FF93A1DE81B800003482F /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FF9391DE81B800003482F /* SMPageControl.m */; };
-		8E7FF93D1DE83E830003482F /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FF93C1DE83E830003482F /* AuthManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,6 +107,20 @@
 		841A612D1DF385870053717A /* CHAdHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHAdHeaderCell.m; sourceTree = "<group>"; };
 		841A612F1DF5A8710053717A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		841A61311DF5A8980053717A /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		841A61331DFBB2630053717A /* ShareManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareManager.h; sourceTree = "<group>"; };
+		841A61341DFBB2630053717A /* ShareManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareManager.m; sourceTree = "<group>"; };
+		841A61371DFBBD4D0053717A /* GDTMobBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobBannerView.h; sourceTree = "<group>"; };
+		841A61381DFBBD4D0053717A /* GDTMobInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTMobInterstitial.h; sourceTree = "<group>"; };
+		841A61391DFBBD4D0053717A /* GDTNativeAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTNativeAd.h; sourceTree = "<group>"; };
+		841A613A1DFBBD4D0053717A /* GDTSplashAd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTSplashAd.h; sourceTree = "<group>"; };
+		841A613B1DFBBD4D0053717A /* GDTTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTTrack.h; sourceTree = "<group>"; };
+		841A613C1DFBBD4D0053717A /* libGDTMobSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGDTMobSDK.a; sourceTree = "<group>"; };
+		841A613E1DFBC0DB0053717A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		841A61401DFBC10E0053717A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		841A61421DFBC1220053717A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		841A61441DFBC12C0053717A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		841A61461DFBC1630053717A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		841A61481DFBC1730053717A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		847AA8371DE8885F007B3EF7 /* CHWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHWebViewController.h; sourceTree = "<group>"; };
 		847AA8381DE8885F007B3EF7 /* CHWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHWebViewController.m; sourceTree = "<group>"; };
 		8E161AFF1DE588480070CA50 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -225,8 +246,6 @@
 		8E7FF9341DE819FA0003482F /* RKSwipeBetweenViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKSwipeBetweenViewControllers.m; sourceTree = "<group>"; };
 		8E7FF9381DE81B800003482F /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
 		8E7FF9391DE81B800003482F /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
-		8E7FF93B1DE83E830003482F /* AuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthManager.h; sourceTree = "<group>"; };
-		8E7FF93C1DE83E830003482F /* AuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,9 +253,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				841A61321DF5A8980053717A /* libsqlite3.tbd in Frameworks */,
+				841A61491DFBC1730053717A /* StoreKit.framework in Frameworks */,
+				841A61471DFBC1630053717A /* Security.framework in Frameworks */,
 				841A61301DF5A8710053717A /* CoreTelephony.framework in Frameworks */,
+				841A61451DFBC12C0053717A /* SystemConfiguration.framework in Frameworks */,
+				841A61431DFBC1220053717A /* QuartzCore.framework in Frameworks */,
+				841A61411DFBC10E0053717A /* CoreLocation.framework in Frameworks */,
+				841A613F1DFBC0DB0053717A /* AdSupport.framework in Frameworks */,
+				841A61321DF5A8980053717A /* libsqlite3.tbd in Frameworks */,
 				8E389ABF1DF514C4006C4CBF /* UMMobClick.framework in Frameworks */,
+				841A613D1DFBBD4D0053717A /* libGDTMobSDK.a in Frameworks */,
 				8E161B7B1DE5A68F0070CA50 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,6 +293,19 @@
 				841A61281DF366EE0053717A /* UIAlertView+Blocks.m */,
 			);
 			path = "AlertViews+Blocks";
+			sourceTree = "<group>";
+		};
+		841A61361DFBBD4D0053717A /* GDT_SDK */ = {
+			isa = PBXGroup;
+			children = (
+				841A61371DFBBD4D0053717A /* GDTMobBannerView.h */,
+				841A61381DFBBD4D0053717A /* GDTMobInterstitial.h */,
+				841A61391DFBBD4D0053717A /* GDTNativeAd.h */,
+				841A613A1DFBBD4D0053717A /* GDTSplashAd.h */,
+				841A613B1DFBBD4D0053717A /* GDTTrack.h */,
+				841A613C1DFBBD4D0053717A /* libGDTMobSDK.a */,
+			);
+			path = GDT_SDK;
 			sourceTree = "<group>";
 		};
 		847AA8F01DE960BA007B3EF7 /* view */ = {
@@ -301,12 +340,12 @@
 			children = (
 				8E161B131DE588AF0070CA50 /* RequestTool.h */,
 				8E161B141DE588AF0070CA50 /* RequestTool.m */,
-				8E7FF93B1DE83E830003482F /* AuthManager.h */,
-				8E7FF93C1DE83E830003482F /* AuthManager.m */,
 				8E389A741DEEB47A006C4CBF /* AdManager.h */,
 				8E389A751DEEB47A006C4CBF /* AdManager.m */,
 				841A611E1DF354130053717A /* CHPlayerTool.h */,
 				841A611F1DF354130053717A /* CHPlayerTool.m */,
+				841A61331DFBB2630053717A /* ShareManager.h */,
+				841A61341DFBB2630053717A /* ShareManager.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -360,6 +399,12 @@
 		8E161B711DE5A5EB0070CA50 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				841A61481DFBC1730053717A /* StoreKit.framework */,
+				841A61461DFBC1630053717A /* Security.framework */,
+				841A61441DFBC12C0053717A /* SystemConfiguration.framework */,
+				841A61421DFBC1220053717A /* QuartzCore.framework */,
+				841A61401DFBC10E0053717A /* CoreLocation.framework */,
+				841A613E1DFBC0DB0053717A /* AdSupport.framework */,
 				841A61311DF5A8980053717A /* libsqlite3.tbd */,
 				841A612F1DF5A8710053717A /* CoreTelephony.framework */,
 				8E161B7A1DE5A68F0070CA50 /* libz.tbd */,
@@ -459,6 +504,7 @@
 			isa = PBXGroup;
 			children = (
 				8E389ABE1DF514C4006C4CBF /* UMMobClick.framework */,
+				841A61361DFBBD4D0053717A /* GDT_SDK */,
 				8E7FF90B1DE7D2DE0003482F /* Classes */,
 				8E161B121DE588820070CA50 /* Tools */,
 				8E4DD5E31DE573FE00441C04 /* MainTabBarController.h */,
@@ -702,6 +748,7 @@
 				8E7FF9241DE7D2DE0003482F /* RecommendController.m in Sources */,
 				841A61291DF366EE0053717A /* CRIButtonItem.m in Sources */,
 				8E389A691DEE790E006C4CBF /* TAAbstractDotView.m in Sources */,
+				841A61351DFBB2630053717A /* ShareManager.m in Sources */,
 				8E389A6D1DEE790E006C4CBF /* SDCollectionViewCell.m in Sources */,
 				8E7FF9271DE7D2DE0003482F /* ComperesController.m in Sources */,
 				8E161B591DE590050070CA50 /* UIImageView+WebCache.m in Sources */,
@@ -728,7 +775,6 @@
 				841A612A1DF366EE0053717A /* UIActionSheet+Blocks.m in Sources */,
 				8E389A541DED6AC0006C4CBF /* MatchModel.m in Sources */,
 				8E161B541DE590050070CA50 /* UIButton+WebCache.m in Sources */,
-				8E7FF93D1DE83E830003482F /* AuthManager.m in Sources */,
 				8E7FF9351DE819FA0003482F /* EasePageViewController.m in Sources */,
 				8E389A6B1DEE790E006C4CBF /* TADotView.m in Sources */,
 				8E7FF9231DE7D2DE0003482F /* KeepingController.m in Sources */,
@@ -872,6 +918,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/chardlol/ThirdLib/WeixinActivity/Resources",
 					"$(PROJECT_DIR)/chardlol/ThirdLib/WeixinActivity/Resources/OpenSDK1.7.5",
+					"$(PROJECT_DIR)/chardlol/GDT_SDK",
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = chardlol;
@@ -899,6 +946,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/chardlol/ThirdLib/WeixinActivity/Resources",
 					"$(PROJECT_DIR)/chardlol/ThirdLib/WeixinActivity/Resources/OpenSDK1.7.5",
+					"$(PROJECT_DIR)/chardlol/GDT_SDK",
 				);
 				OTHER_LDFLAGS = "-lxml2";
 				PRODUCT_BUNDLE_IDENTIFIER = chardlol;

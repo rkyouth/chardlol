@@ -9,7 +9,6 @@
 #import "RecommendController.h"
 #import "RecommendCell.h"
 #import "RequestTool.h"
-#import "AuthManager.h"
 #import "RecommendModel.h"
 #import "UIImageView+WebCache.h"
 #import "SettingController.h"

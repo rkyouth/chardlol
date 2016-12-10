@@ -7,6 +7,7 @@
 //
 
 #import "CHWebViewController.h"
+#import "ShareManager.h"
 
 @interface CHWebViewController () <UIWebViewDelegate>
 
@@ -29,6 +30,7 @@
     [self.view addSubview:self.indicatorView];
     [self.indicatorView startAnimating];
 
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(rightbarClick:)];
 }
 
 - (void)viewWillLayoutSubviews
@@ -36,6 +38,11 @@
     [super viewWillLayoutSubviews];
     self.webView.frame = self.view.bounds;
 }
+
+//- (void)rightbarClick:(UIBarButtonItem *)item
+//{
+//    [ShareManager shareWithController:self Url:self.requesUrl];
+//}
 
 - (UIWebView *)webView
 {

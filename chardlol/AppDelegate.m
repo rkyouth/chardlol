@@ -9,7 +9,6 @@
 #import "AppDelegate.h"
 #import "MainTabBarController.h"
 #import "RequestTool.h"
-#import "AuthManager.h"
 #import <UMMobClick/MobClick.h>
 
 @interface AppDelegate ()
