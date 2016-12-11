@@ -11,8 +11,9 @@
 
 @interface AdManager : NSObject
 
-+ (AdManager *)sharedManager;
-
-+ (void)setNormalAdWithSuperView:(UIView *)superView;
+- (void)newNaitveAdWithSuperView:(UIView *)superView
+                      Controller:(UIViewController *)controller
+                             Key:(NSString *)key
+                             Pid:(NSString *)pid;
 
 @end

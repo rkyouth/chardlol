@@ -15,9 +15,8 @@
 #import "CHWebViewController.h"
 #import <UMMobClick/MobClick.h>
 #import "AdManager.h"
-#import "GDTMobBannerView.h"
 
-@interface KeepingController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate,GDTMobBannerViewDelegate>
+@interface KeepingController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSMutableArray *dataSource;
@@ -28,8 +27,8 @@
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
 @property (nonatomic,strong) UIActivityIndicatorView *indicatorView;
 
+@property (nonatomic,strong) AdManager *adMgr;
 @property (nonatomic,strong) UIView *adView;
-@property (nonatomic,strong) GDTMobBannerView *bannerAd;
 
 @end
 
@@ -46,6 +45,7 @@
     [self.indicatorView startAnimating];
     
     self.tableView.tableHeaderView = self.adView;
+    [self.adMgr newNaitveAdWithSuperView:self.adView Controller:self Key:@"1105344611" Pid:@"1080215124193862"];
     
     [self loadData];
 
@@ -172,36 +172,22 @@
     return _indicatorView;
 }
 
-- (GDTMobBannerView *)bannerAd
-{
-    if (!_bannerAd) {
-        NSString *appkey = @"1105344611";
-        NSString *posId = @"4090812164690039";
-        
-        _bannerAd = [[GDTMobBannerView alloc]
-                     initWithFrame:self.adView.bounds
-                     appkey:appkey
-                     placementId:posId];
-        
-        _bannerAd.delegate = self;
-        _bannerAd.currentViewController = [[UIApplication sharedApplication] keyWindow].rootViewController;
-        _bannerAd.isAnimationOn = YES;
-        _bannerAd.showCloseBtn = NO;
-        _bannerAd.isGpsOn = YES;
-        [_bannerAd loadAdAndShow];
-    }
-    return _bannerAd;
-}
-
 - (UIView *)adView
 {
     if (!_adView) {
         CGFloat W = self.view.frame.size.width;
         _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, W, W * 50 / 320)];
-        //        _adView.backgroundColor = [UIColor orangeColor];
-        [_adView addSubview:self.bannerAd];
+        _adView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
     }
     return _adView;
+}
+
+- (AdManager *)adMgr
+{
+    if (!_adMgr) {
+        _adMgr = [[AdManager alloc] init];
+    }
+    return _adMgr;
 }
 
 #pragma mark - ui_response
@@ -265,12 +251,6 @@
             [self loadMoreData];
         }
     }
-}
-
-#pragma mark - GDTMobBannerViewDelegate
-- (void)bannerViewFailToReceived:(NSError *)error
-{
-    [AdManager setNormalAdWithSuperView:self.adView];
 }
 
 @end

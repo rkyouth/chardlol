@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "CHPlayerTool.h"
 #import <UMMobClick/MobClick.h>
+#import "AdManager.h"
 
 @interface VideoListController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 
@@ -26,6 +27,9 @@
 @property (nonatomic,strong) UIRefreshControl *refreshControl;
 @property (nonatomic,strong) UIActivityIndicatorView *indicatorView;
 
+@property (nonatomic,strong) AdManager *adMgr;
+@property (nonatomic,strong) UIView *adView;
+
 @end
 
 @implementation VideoListController
@@ -38,6 +42,9 @@
     
     [self.view addSubview:self.tableView];
     [self.tableView addSubview:self.refreshControl];
+    
+    self.tableView.tableHeaderView = self.adView;
+    [self.adMgr newNaitveAdWithSuperView:self.adView Controller:self Key:@"1105344611" Pid:@"1080215124193862"];
     
     self.page = 1;
     switch (_listType) {
@@ -191,6 +198,24 @@
         _indicatorView.color = [UIColor grayColor];
     }
     return _indicatorView;
+}
+
+- (UIView *)adView
+{
+    if (!_adView) {
+        CGFloat W = self.view.frame.size.width;
+        _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, W, W * 50 / 320)];
+        _adView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
+    }
+    return _adView;
+}
+
+- (AdManager *)adMgr
+{
+    if (!_adMgr) {
+        _adMgr = [[AdManager alloc] init];
+    }
+    return _adMgr;
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate

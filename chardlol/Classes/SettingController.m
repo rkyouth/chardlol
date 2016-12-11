@@ -15,15 +15,14 @@
 #import "ShareManager.h"
 #import "SDImageCache.h"
 #import "AdManager.h"
-#import "GDTMobBannerView.h"
 
-@interface SettingController () <UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate,GDTMobBannerViewDelegate>
+@interface SettingController () <UITableViewDataSource,UITableViewDelegate,MFMailComposeViewControllerDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
 @property (nonatomic,strong) NSArray *dataSource;
 
+@property (nonatomic,strong) AdManager *adManager;
 @property (nonatomic,strong) UIView *adView;
-@property (nonatomic,strong) GDTMobBannerView *bannerAd;
 
 @end
 
@@ -37,6 +36,7 @@
     
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.adView;
+    [self.adManager newNaitveAdWithSuperView:self.adView Controller:self Key:@"1105344611" Pid:@"1080215124193862"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -83,37 +83,22 @@
     return _dataSource;
 }
 
-- (GDTMobBannerView *)bannerAd
-{
-    if (!_bannerAd) {
-        NSString *appkey = @"1105344611";
-        NSString *posId = @"4090812164690039";
-        
-        CGFloat adW = self.adView.frame.size.width - 20;
-        _bannerAd = [[GDTMobBannerView alloc]
-                     initWithFrame:CGRectMake(10,10,adW,adW * 50 / 320)
-                     appkey:appkey
-                     placementId:posId];
-        
-        _bannerAd.delegate = self;
-        _bannerAd.currentViewController = [[UIApplication sharedApplication] keyWindow].rootViewController;
-        _bannerAd.isAnimationOn = YES;
-        _bannerAd.showCloseBtn = NO;
-        _bannerAd.isGpsOn = YES;
-        [_bannerAd loadAdAndShow];
-    }
-    return _bannerAd;
-}
-
 - (UIView *)adView
 {
     if (!_adView) {
         CGFloat W = self.view.frame.size.width;
-        _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, W, ((W - 20) * 50 / 320) + 20)];
-//        _adView.backgroundColor = [UIColor orangeColor];
-        [_adView addSubview:self.bannerAd];
+        _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, W, W * 50 / 320)];
+        _adView.backgroundColor = [UIColor lightTextColor];
     }
     return _adView;
+}
+
+- (AdManager *)adManager
+{
+    if (!_adManager) {
+        _adManager = [[AdManager alloc] init];
+    }
+    return _adManager;
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate
@@ -251,10 +236,5 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma mark - GDTMobBannerViewDelegate
-- (void)bannerViewFailToReceived:(NSError *)error
-{
-    [AdManager setNormalAdWithSuperView:self.adView];
-}
 
 @end

@@ -13,6 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "VideoListController.h"
 #import <UMMobClick/MobClick.h>
+#import "AdManager.h"
 
 #define userslist @"89323481,99201492,353493796,86787875,91386394,76521919,86364302,346799477,431098561,340703547,14771885,369136383,57379868,111568632,455360660,87581910,70802174,141103004,94442014,67612492,45810217,340647717,344782203,155410757,136141036,134336394,148833979,97764116,146341241,90827101,19654343,138108211,65078683,104820044,110299062,98073387,128560709"
 
@@ -23,6 +24,9 @@
 @property (nonatomic,strong) NSMutableArray *dataSource;
 
 @property (nonatomic,strong) UIActivityIndicatorView *indicatorView;
+
+@property (nonatomic,strong) AdManager *adMgr;
+@property (nonatomic,strong) UIView *adView;
 
 @end
 
@@ -38,6 +42,9 @@
     [self.view addSubview:self.indicatorView];
     [self.indicatorView startAnimating];
     
+    self.tableView.tableHeaderView = self.adView;
+    [self.adMgr newNaitveAdWithSuperView:self.adView Controller:self Key:@"1105344611" Pid:@"1080215124193862"];
+    
     [self loadData];
 }
 
@@ -46,6 +53,7 @@
     [super viewWillAppear:animated];
     [MobClick beginLogPageView:@"ComperesPage"];//("PageOne"为页面名称，可自定义)
 }
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -108,6 +116,24 @@
         _indicatorView.color = [UIColor grayColor];
     }
     return _indicatorView;
+}
+
+- (UIView *)adView
+{
+    if (!_adView) {
+        CGFloat W = self.view.frame.size.width;
+        _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, W, W * 50 / 320)];
+        _adView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
+    }
+    return _adView;
+}
+
+- (AdManager *)adMgr
+{
+    if (!_adMgr) {
+        _adMgr = [[AdManager alloc] init];
+    }
+    return _adMgr;
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate
