@@ -20,6 +20,8 @@
 
 @property (nonatomic,copy) NSString *published;
 
+@property (nonatomic,copy) NSString *duration;
+
 + (instancetype)videoWithDic:(NSDictionary *)dic;
 
 @end

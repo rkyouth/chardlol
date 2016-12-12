@@ -15,6 +15,7 @@
 #import "CHWebViewController.h"
 #import <UMMobClick/MobClick.h>
 #import "AdManager.h"
+#import "UIImage+chard.h"
 
 @interface KeepingController () <UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 
@@ -43,9 +44,6 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self.view addSubview:self.indicatorView];
     [self.indicatorView startAnimating];
-    
-    self.tableView.tableHeaderView = self.adView;
-    [self.adMgr newNaitveAdWithSuperView:self.adView Controller:self Key:@"1105344611" Pid:@"1080215124193862"];
     
     [self loadData];
 
@@ -178,6 +176,11 @@
         CGFloat W = self.view.frame.size.width;
         _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, W, W * 50 / 320)];
         _adView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
+        
+        CGFloat lineY = _adView.frame.size.height - 0.5;
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, lineY, _adView.frame.size.width, 0.5)];
+        line.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+        [_adView addSubview:line];
     }
     return _adView;
 }
@@ -229,6 +232,19 @@
     webVc.title = model.title;
     webVc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:webVc animated:YES];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (!_adView) {
+        [self.adMgr newBannerWithContentView:self.adView Pid:gdt_guide_banner];
+    }
+    return self.adView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return self.view.frame.size.width * 50 / 320;
 }
 
 #pragma mark - UIScrollViewDelegate

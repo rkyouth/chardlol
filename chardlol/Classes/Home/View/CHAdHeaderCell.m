@@ -9,14 +9,13 @@
 #import "CHAdHeaderCell.h"
 #import "UIImageView+WebCache.h"
 #import "CCellHeadView.h"
+#import "AdManager.h"
 
 @interface CHAdHeaderCell()
 
-@property (nonatomic,weak) UIImageView *adView;
-
+@property (nonatomic,strong) UIView *adView;
 @property (nonatomic,weak) UIView *line;
-
-@property (nonatomic,weak) UILabel *choiceView;
+@property (nonatomic,strong) AdManager *adMgr;
 
 @end
 
@@ -26,35 +25,28 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        UIImageView *adView = [[UIImageView alloc] init];
-        [adView sd_setImageWithURL:[NSURL URLWithString:@"http://ww4.sinaimg.cn/mw690/005GC2Nwgw1fai7vd8m09j312c06otao.jpg"] placeholderImage:[UIImage imageNamed:@"placeholder"]];
-        adView.layer.cornerRadius = 3.0;
-        adView.clipsToBounds = YES;
-        adView.userInteractionEnabled = YES;
-        [adView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAd:)]];
-        [self.contentView addSubview:adView];
-        self.adView = adView;
+        self.adView = [[UIView alloc] init];
+        self.adView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
+        [self.contentView addSubview:self.adView];
         
-//        UIView *line = [[UIView alloc] init];
-////        line.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
-//        [self.contentView addSubview:line];
-//        self.line = line;
-        
-        UILabel *choiceView = [[UILabel alloc] init];
-        choiceView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
-        choiceView.textColor = [UIColor whiteColor];
-        choiceView.text = @"广告";
-        choiceView.font = [UIFont systemFontOfSize:12];
-        choiceView.textAlignment = NSTextAlignmentCenter;
-        [self.adView addSubview:choiceView];
-        self.choiceView = choiceView;
+        [self.adMgr newBannerWithContentView:self Pid:gdt_home_banner];
     }
     return self;
 }
 
-- (void)tapAd:(UITapGestureRecognizer *)ges
+- (AdManager *)adMgr
 {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.jennixlove.com"]];
+    if (!_adMgr) {
+        _adMgr = [[AdManager alloc] init];
+    }
+    return _adMgr;
+}
+
+- (void)didMoveToSuperview
+{
+    [super didMoveToSuperview];
+    
+    
 }
 
 - (void)layoutSubviews
@@ -64,12 +56,6 @@
     CGFloat adW = self.contentView.frame.size.width - cellgap * 2;
     self.adView.frame = CGRectMake(cellgap, cellgap, adW, 60);
     
-//    CGFloat lineY = CGRectGetMaxY(self.adView.frame) + cellgap;
-//    self.line.frame = CGRectMake(cellgap, lineY, adW, 0.5);
-    
-    CGFloat choiceX = self.adView.frame.size.width - 30;
-    CGFloat choiceY = self.adView.frame.size.height - 18;
-    self.choiceView.frame = CGRectMake(choiceX, choiceY, 30, 20);
 }
 
 @end

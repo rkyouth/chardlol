@@ -43,6 +43,8 @@
 
 @property (nonatomic,copy) NSString *published;
 
+@property (nonatomic,copy) NSString *duration;
+
 + (instancetype)recommendWithDic:(NSDictionary *)dic;
 
 @end

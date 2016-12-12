@@ -204,10 +204,14 @@ static NSString *const adcellid = @"adcellid";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    
-    CHAdHeaderCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:adcellid forIndexPath:indexPath];
-
-    if (indexPath.section == 1) {
+    switch (indexPath.section) {
+        case 0:{
+            CHAdHeaderCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:adcellid forIndexPath:indexPath];
+            return cell;
+            break;
+        }
+            
+        case 1:{
         TableViewCCell *ccell = [collectionView dequeueReusableCellWithReuseIdentifier:tableccellid forIndexPath:indexPath];
         ccell.cCellClick = ^(NSInteger row){
             switch (row) {
@@ -226,19 +230,23 @@ static NSString *const adcellid = @"adcellid";
                     break;
             }
         };
-        
-        return ccell;
+            return ccell;
+            break;
+        }
+            
+        case 2:{
+            CHCollectionCell *chcell = [collectionView dequeueReusableCellWithReuseIdentifier:chcellId forIndexPath:indexPath];
+            RecommendModel *rec = self.dataSource[indexPath.row];
+            chcell.model = rec;
+            
+            return chcell;
+            break;
+        }
+        default:
+            return [[UICollectionViewCell alloc] init];
+            break;
     }
     
-    if (indexPath.section == 2) {
-        CHCollectionCell *chcell = [collectionView dequeueReusableCellWithReuseIdentifier:chcellId forIndexPath:indexPath];
-        RecommendModel *rec = self.dataSource[indexPath.row];
-        chcell.model = rec;
-        
-        return chcell;
-    }
-    
-    return cell;
 }
 
 // 选中某item
@@ -274,7 +282,7 @@ static NSString *const adcellid = @"adcellid";
 {
     switch (indexPath.section) {
         case 0:
-            return CGSizeMake(self.view.frame.size.width, 80);
+            return CGSizeMake(self.view.frame.size.width, 60 + cellgap * 2);
             break;
         case 1:
             return CGSizeMake(self.view.frame.size.width, 120);

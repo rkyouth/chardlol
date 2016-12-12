@@ -7,7 +7,7 @@
 //
 
 #import "VideoListController.h"
-#import "CHCustomCell.h"
+#import "VideoListCell.h"
 #import "RequestTool.h"
 #import "VideoModel.h"
 #import "UIImageView+WebCache.h"
@@ -43,8 +43,8 @@
     [self.view addSubview:self.tableView];
     [self.tableView addSubview:self.refreshControl];
     
-    self.tableView.tableHeaderView = self.adView;
-    [self.adMgr newNaitveAdWithSuperView:self.adView Controller:self Key:@"1105344611" Pid:@"1080215124193862"];
+    [self.view addSubview:self.indicatorView];
+    [self.indicatorView startAnimating];
     
     self.page = 1;
     switch (_listType) {
@@ -76,6 +76,7 @@
 {
     [super viewWillLayoutSubviews];
     self.tableView.frame = self.view.bounds;
+    self.indicatorView.center = self.tableView.center;
 }
 
 - (void)loadCompereData
@@ -206,6 +207,11 @@
         CGFloat W = self.view.frame.size.width;
         _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, W, W * 50 / 320)];
         _adView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
+        
+        CGFloat lineY = _adView.frame.size.height - 0.5;
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, lineY, _adView.frame.size.width, 0.5)];
+        line.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+        [_adView addSubview:line];
     }
     return _adView;
 }
@@ -231,11 +237,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CHCustomCell *cell = [CHCustomCell cellWithTableView:tableView];
+    VideoListCell *cell = [VideoListCell cellWithTableView:tableView];
     VideoModel *model = self.dataSource[indexPath.row];
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:model.thumbnail] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     cell.textLabel.text = model.title;
     cell.detailTextLabel.text = model.published;
+    
+    int min = [model.duration intValue] / 60;
+    int sec = [model.duration intValue] % 60;
+    cell.durationLab.text = [NSString stringWithFormat:@"%02d:%02d",min,sec];
     
     return cell;
 }
@@ -247,6 +257,19 @@
     VideoModel *model = self.dataSource[indexPath.row];
     [CHPlayerTool playWithUrl:[NSURL URLWithString:model.link] atController:self];
     [MobClick event:@"videoListClick"];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    if (!_adView) {
+        [self.adMgr newBannerWithContentView:self.adView Pid:gdt_videolist_banner];
+    }
+    return self.adView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return self.view.frame.size.width * 50 / 320;
 }
 
 #pragma mark - UIScrollViewDelegate

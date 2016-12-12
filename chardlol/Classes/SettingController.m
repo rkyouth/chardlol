@@ -36,7 +36,7 @@
     
     [self.view addSubview:self.tableView];
     self.tableView.tableHeaderView = self.adView;
-    [self.adManager newNaitveAdWithSuperView:self.adView Controller:self Key:@"1105344611" Pid:@"1080215124193862"];
+    [self.adManager newBannerWithContentView:self.adView Pid:gdt_setting_banner];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -89,6 +89,11 @@
         CGFloat W = self.view.frame.size.width;
         _adView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, W, W * 50 / 320)];
         _adView.backgroundColor = [UIColor lightTextColor];
+        
+        CGFloat lineY = _adView.frame.size.height - 0.5;
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, lineY, _adView.frame.size.width, 0.5)];
+        line.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2];
+        [_adView addSubview:line];
     }
     return _adView;
 }
@@ -219,7 +224,7 @@
 - (NSString *)getMemorySize
 {
     NSInteger cache = [[SDImageCache sharedImageCache] getSize];
-    return [NSString stringWithFormat:@"%.2f M",cache/1000.0/1000.0];
+    return [NSString stringWithFormat:@"%.2f M",cache/1024.0/1024.0];
 }
 
 - (void)clearMemory

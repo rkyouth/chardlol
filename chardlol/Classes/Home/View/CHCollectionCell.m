@@ -18,6 +18,8 @@
 
 @property (nonatomic,weak) UILabel *titleLab;
 
+@property (nonatomic,weak) UILabel *durationLab;
+
 @end
 
 @implementation CHCollectionCell
@@ -38,6 +40,14 @@
         titleLab.numberOfLines = 0;
         [self.contentView addSubview:titleLab];
         self.titleLab = titleLab;
+        
+        UILabel *durationLab = [[UILabel alloc] init];
+        durationLab.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.7];
+        durationLab.textColor = [UIColor whiteColor];
+        durationLab.textAlignment = NSTextAlignmentCenter;
+        durationLab.font = [UIFont systemFontOfSize:10];
+        [self.imageView addSubview:durationLab];
+        self.durationLab = durationLab;
         
         UIView *highlightView = [[UIView alloc] init];
         highlightView.hidden = YES;
@@ -61,6 +71,12 @@
     CGFloat titleW = self.contentView.frame.size.width - 20;
     self.titleLab.frame = CGRectMake(0, titleY, titleW, 35);
     
+    CGFloat durW = 36;
+    CGFloat durH = 20;
+    CGFloat durX = self.imageView.frame.size.width - durW - 5;
+    CGFloat durY = self.imageView.frame.size.height - durH - 5;
+    self.durationLab.frame = CGRectMake(durX, durY, durW, durH);
+    
     self.highlightView.frame = self.imageView.bounds;
 }
 
@@ -70,6 +86,10 @@
     
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.thumbnail] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     [self setLabelSpace:self.titleLab withValue:model.title withFont:[UIFont systemFontOfSize:12]];
+    
+    int min = [model.duration intValue] / 60;
+    int sec = [model.duration intValue] % 60;
+    self.durationLab.text = [NSString stringWithFormat:@"%02d:%02d",min,sec];
 }
 
 - (void)setLabelSpace:(UILabel*)label withValue:(NSString*)str withFont:(UIFont*)font {

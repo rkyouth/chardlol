@@ -87,6 +87,8 @@
 		8E7FF9351DE819FA0003482F /* EasePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FF9321DE819FA0003482F /* EasePageViewController.m */; };
 		8E7FF9361DE819FA0003482F /* RKSwipeBetweenViewControllers.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FF9341DE819FA0003482F /* RKSwipeBetweenViewControllers.m */; };
 		8E7FF93A1DE81B800003482F /* SMPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FF9391DE81B800003482F /* SMPageControl.m */; };
+		8EE2EDE81DFE842E00C02EFE /* UIImage+chard.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2EDE71DFE842E00C02EFE /* UIImage+chard.m */; };
+		8EE2EDEB1DFE91E400C02EFE /* VideoListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EE2EDEA1DFE91E400C02EFE /* VideoListCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -246,6 +248,10 @@
 		8E7FF9341DE819FA0003482F /* RKSwipeBetweenViewControllers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKSwipeBetweenViewControllers.m; sourceTree = "<group>"; };
 		8E7FF9381DE81B800003482F /* SMPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMPageControl.h; sourceTree = "<group>"; };
 		8E7FF9391DE81B800003482F /* SMPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMPageControl.m; sourceTree = "<group>"; };
+		8EE2EDE61DFE842E00C02EFE /* UIImage+chard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+chard.h"; sourceTree = "<group>"; };
+		8EE2EDE71DFE842E00C02EFE /* UIImage+chard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+chard.m"; sourceTree = "<group>"; };
+		8EE2EDE91DFE91E400C02EFE /* VideoListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoListCell.h; sourceTree = "<group>"; };
+		8EE2EDEA1DFE91E400C02EFE /* VideoListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoListCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -277,6 +283,8 @@
 				841A60E61DEACD730053717A /* CHCustomCell.m */,
 				8E389AB81DF16E4D006C4CBF /* TableViewCCell.h */,
 				8E389AB91DF16E4D006C4CBF /* TableViewCCell.m */,
+				8EE2EDE61DFE842E00C02EFE /* UIImage+chard.h */,
+				8EE2EDE71DFE842E00C02EFE /* UIImage+chard.m */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -632,6 +640,8 @@
 		8E7FF9221DE7D2DE0003482F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8EE2EDE91DFE91E400C02EFE /* VideoListCell.h */,
+				8EE2EDEA1DFE91E400C02EFE /* VideoListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -727,6 +737,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EE2EDEB1DFE91E400C02EFE /* VideoListCell.m in Sources */,
 				8E4DD5D11DE56F2100441C04 /* AppDelegate.m in Sources */,
 				8E7FF9281DE7D2DE0003482F /* HeroesController.m in Sources */,
 				8E389A6A1DEE790E006C4CBF /* TAAnimatedDotView.m in Sources */,
@@ -775,6 +786,7 @@
 				841A612A1DF366EE0053717A /* UIActionSheet+Blocks.m in Sources */,
 				8E389A541DED6AC0006C4CBF /* MatchModel.m in Sources */,
 				8E161B541DE590050070CA50 /* UIButton+WebCache.m in Sources */,
+				8EE2EDE81DFE842E00C02EFE /* UIImage+chard.m in Sources */,
 				8E7FF9351DE819FA0003482F /* EasePageViewController.m in Sources */,
 				8E389A6B1DEE790E006C4CBF /* TADotView.m in Sources */,
 				8E7FF9231DE7D2DE0003482F /* KeepingController.m in Sources */,

@@ -12,13 +12,16 @@
 #import "UIImageView+WebCache.h"
 #import "GDTNativeAd.h"
 
-@interface AdManager() <GDTNativeAdDelegate>
+@interface AdManager() <GDTNativeAdDelegate,GDTMobBannerViewDelegate>
 
 @property (nonatomic,strong) UIView *superView;
 
 // native
 @property (nonatomic,strong) GDTNativeAd *nativeAd;
 @property (nonatomic,strong) GDTNativeAdData *nativeData;
+
+// banner
+@property (nonatomic,strong) GDTMobBannerView *banner;
 
 @end
 
@@ -34,6 +37,17 @@
     adView.userInteractionEnabled = YES;
     [adView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAd:)]];
     [superView addSubview:adView];
+    
+    
+    CGFloat choiceX = adView.frame.size.width - 30;
+    CGFloat choiceY = adView.frame.size.height - 21;
+    UILabel *choiceView = [[UILabel alloc] initWithFrame:CGRectMake(choiceX, choiceY, 25, 16)];
+    choiceView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.6];
+    choiceView.textColor = [UIColor whiteColor];
+    choiceView.text = @"广告";
+    choiceView.font = [UIFont systemFontOfSize:10];
+    choiceView.textAlignment = NSTextAlignmentCenter;
+    [adView addSubview:choiceView];
     
     CGFloat lineW = superView.frame.size.width;
     CGFloat lineY = superView.frame.size.height - 0.5;
@@ -99,6 +113,16 @@
         desc.text = descText;
         [weakSelf.superView addSubview:desc];
         
+        CGFloat choiceX = weakSelf.superView.frame.size.width - 30;
+        CGFloat choiceY = weakSelf.superView.frame.size.height - 21;
+        UILabel *choiceView = [[UILabel alloc] initWithFrame:CGRectMake(choiceX, choiceY, 25, 16)];
+        choiceView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        choiceView.textColor = [UIColor whiteColor];
+        choiceView.text = @"广告";
+        choiceView.font = [UIFont systemFontOfSize:10];
+        choiceView.textAlignment = NSTextAlignmentCenter;
+        [weakSelf.superView addSubview:choiceView];
+        
         CGFloat lineW = weakSelf.superView.frame.size.width;
         CGFloat lineY = weakSelf.superView.frame.size.height - 0.5;
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, lineY, lineW, 0.5)];
@@ -118,18 +142,34 @@
  */
 - (void)nativeAdFailToLoad:(NSError *)error
 {
-    [self setNormalAdWithSuperView:self.superView];
-}
-
-
-#pragma mark - banner
-- (void)getBannerWithContentView:(UIView *)contentView
-{
+    __weak __typeof(self)weakSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [weakSelf setNormalAdWithSuperView:self.superView];
+    });
     
 }
 
+#pragma mark - banner
+- (void)newBannerWithContentView:(UIView *)contentView Pid:(NSString *)pid
+{
+    _superView = contentView;
+    
+    CGRect rect = CGRectMake(0, 0, GDTMOB_AD_SUGGEST_SIZE_320x50.width, GDTMOB_AD_SUGGEST_SIZE_320x50.height);
+    self.banner = [[GDTMobBannerView alloc] initWithFrame:rect appkey:gdt_adkey placementId:pid];
+    self.banner.center = contentView.center;
+    self.banner.delegate = self;
+    self.banner.currentViewController = [[UIApplication sharedApplication] keyWindow].rootViewController;
+    self.banner.isAnimationOn = YES;
+    self.banner.showCloseBtn = NO;
+    self.banner.isGpsOn = YES;
+    [contentView addSubview:self.banner];
+    
+    [self.banner loadAdAndShow];
+}
 
-#pragma mark - SplashAd
-
+- (void)bannerViewFailToReceived:(NSError *)error
+{
+    [self setNormalAdWithSuperView:_superView];
+}
 
 @end

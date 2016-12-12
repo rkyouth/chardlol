@@ -34,7 +34,7 @@
 #define yk_videosearch @"https://openapi.youku.com/v2/searches/video/by_keyword.json"
 
 #define umeng_appkey @"5844ddbb1061d2040d000a64"
-#define share_link @"https://itunes.apple.com/cn/app/ying-xiong-lian-meng-tong/id1182433375?mt=8"
+#define share_link @"https://itunes.apple.com/cn/app/luer/id1182433375?mt=8"
 
 
 @interface RequestTool : NSObject
