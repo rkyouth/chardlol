@@ -75,6 +75,7 @@
 		8E4DD5D91DE56F2100441C04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E4DD5D81DE56F2100441C04 /* Assets.xcassets */; };
 		8E4DD5DC1DE56F2100441C04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E4DD5DA1DE56F2100441C04 /* LaunchScreen.storyboard */; };
 		8E4DD5E51DE573FE00441C04 /* MainTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E4DD5E41DE573FE00441C04 /* MainTabBarController.m */; };
+		8E731A3E1E0231C60083745F /* CDPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E731A3D1E0231C60083745F /* CDPlayerViewController.m */; };
 		8E7FF9231DE7D2DE0003482F /* KeepingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FF90E1DE7D2DE0003482F /* KeepingController.m */; };
 		8E7FF9241DE7D2DE0003482F /* RecommendController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FF9141DE7D2DE0003482F /* RecommendController.m */; };
 		8E7FF9251DE7D2DE0003482F /* SettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E7FF9171DE7D2DE0003482F /* SettingController.m */; };
@@ -224,6 +225,8 @@
 		8E4DD5DD1DE56F2100441C04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E4DD5E31DE573FE00441C04 /* MainTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarController.h; sourceTree = "<group>"; };
 		8E4DD5E41DE573FE00441C04 /* MainTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarController.m; sourceTree = "<group>"; };
+		8E731A3C1E0231C60083745F /* CDPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDPlayerViewController.h; sourceTree = "<group>"; };
+		8E731A3D1E0231C60083745F /* CDPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDPlayerViewController.m; sourceTree = "<group>"; };
 		8E7FF90D1DE7D2DE0003482F /* KeepingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeepingController.h; sourceTree = "<group>"; };
 		8E7FF90E1DE7D2DE0003482F /* KeepingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeepingController.m; sourceTree = "<group>"; };
 		8E7FF9131DE7D2DE0003482F /* RecommendController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendController.h; sourceTree = "<group>"; };
@@ -285,6 +288,8 @@
 				8E389AB91DF16E4D006C4CBF /* TableViewCCell.m */,
 				8EE2EDE61DFE842E00C02EFE /* UIImage+chard.h */,
 				8EE2EDE71DFE842E00C02EFE /* UIImage+chard.m */,
+				8E731A3C1E0231C60083745F /* CDPlayerViewController.h */,
+				8E731A3D1E0231C60083745F /* CDPlayerViewController.m */,
 			);
 			path = Custom;
 			sourceTree = "<group>";
@@ -767,6 +772,7 @@
 				8E161B0F1DE588480070CA50 /* AFURLRequestSerialization.m in Sources */,
 				8E161B551DE590050070CA50 /* UIImage+GIF.m in Sources */,
 				8E389A581DEE71CE006C4CBF /* StrategyModel.m in Sources */,
+				8E731A3E1E0231C60083745F /* CDPlayerViewController.m in Sources */,
 				847AA8391DE8885F007B3EF7 /* CHWebViewController.m in Sources */,
 				8E161B5B1DE590050070CA50 /* UIView+WebCacheOperation.m in Sources */,
 				8E7FF9251DE7D2DE0003482F /* SettingController.m in Sources */,

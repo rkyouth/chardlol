@@ -9,6 +9,7 @@
 #import "CHPlayerTool.h"
 #import "AFNetworkReachabilityManager.h"
 #import "UIAlertView+Blocks.h"
+#import "CDPlayerViewController.h"
 
 @implementation CHPlayerTool
 
@@ -21,9 +22,9 @@
             [weakSelf setPlayerWithUrl:url Controller:controller];
         }else{
             
-            AVPlayerViewController *playerVc = nil;
-            if (controller.presentedViewController && [controller.presentedViewController isKindOfClass:[AVPlayerViewController class]]) {
-                AVPlayerViewController *av = (AVPlayerViewController *)controller.presentedViewController;
+            CDPlayerViewController *playerVc = nil;
+            if (controller.presentedViewController && [controller.presentedViewController isKindOfClass:[CDPlayerViewController class]]) {
+                CDPlayerViewController *av = (CDPlayerViewController *)controller.presentedViewController;
                 [av.player pause];
                 playerVc = av;
             }
@@ -46,12 +47,12 @@
 
 + (void)setPlayerWithUrl:(NSURL *)url Controller:(UIViewController *)controller
 {
-    if (controller.presentedViewController && [controller.presentedViewController isKindOfClass:[AVPlayerViewController class]]) {
-        AVPlayerViewController *av = (AVPlayerViewController *)controller.presentedViewController;
+    if (controller.presentedViewController && [controller.presentedViewController isKindOfClass:[CDPlayerViewController class]]) {
+        CDPlayerViewController *av = (CDPlayerViewController *)controller.presentedViewController;
         [av.player play];
     }
     //初始化
-    AVPlayerViewController  *playerVc = [[AVPlayerViewController alloc]init];
+    CDPlayerViewController  *playerVc = [[CDPlayerViewController alloc]init];
     
     //AVPlayerItem 视频的一些信息  创建AVPlayer使用的
     AVPlayerItem *item = [[AVPlayerItem alloc]initWithURL:url];
