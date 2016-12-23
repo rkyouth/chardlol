@@ -282,7 +282,7 @@ static NSString *const adcellid = @"adcellid";
 {
     switch (indexPath.section) {
         case 0:
-            return CGSizeMake(self.view.frame.size.width, 60 + cellgap * 2);
+            return CGSizeMake(self.view.frame.size.width, 60);
             break;
         case 1:
             return CGSizeMake(self.view.frame.size.width, 120);

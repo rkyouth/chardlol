@@ -29,7 +29,7 @@
         self.adView.backgroundColor = [UIColor colorWithRed:239/255.0 green:239/255.0 blue:244/255.0 alpha:1];
         [self.contentView addSubview:self.adView];
         
-        [self.adMgr newBannerWithContentView:self Pid:gdt_home_banner];
+        [self.adMgr newBannerWithContentView:self.contentView Pid:gdt_home_banner];
     }
     return self;
 }
@@ -53,8 +53,9 @@
 {
     [super layoutSubviews];
     
-    CGFloat adW = self.contentView.frame.size.width - cellgap * 2;
-    self.adView.frame = CGRectMake(cellgap, cellgap, adW, 60);
+    CGFloat adW = 60 * 320 / 50;
+    CGFloat adX = (self.contentView.bounds.size.width - adW) * 0.5;
+    self.adView.frame = CGRectMake(adX, 0, adW, 60);
     
 }
 
